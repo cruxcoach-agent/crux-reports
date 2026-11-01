@@ -43,7 +43,18 @@ The stills come from the design-review test: a German phone, with a made-up logb
 - The section ignores the board filter, like the board comparison row above it. It appears only when two boards have sends in the interval.
 - It works with the logbook you already have, without a database change.
 
+## Phone test and label fix
+
+Test build 2 was tried on a phone with a made-up logbook on three boards ([test report](../release-0.2.5/2026-11-01-phone-test-41-48.md)). Every number matched. One issue: when the values of the selected month lie close together, their labels stacked, and one label covered another board's point.
+
+A fix is ready but not yet in a build. The values now stand in one column beside the whole group of dots, each led by its board's colour dot, and equal values sit further apart:
+
+| On the phone (build 2) | With the fix |
+|---|---|
+| ![Build 2 on the phone](../release-0.2.5/2026-11-01-stats-month-selected.png) | ![With the fix](2026-11-01-per-month-labels-fix.png) |
+
 ## Open
 
-- Not yet tried on a phone with a real multi-board logbook.
+- The label fix goes into the next build once the maintainer agrees.
+- Not yet tried with a real multi-board logbook.
 - Ideas for later: one grade over the months (tries for 6b on each board, month by month), and the median next to the average.
