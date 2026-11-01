@@ -2,6 +2,8 @@
 
 Room: #feat-0.2.5-analytics · issue [#44](https://github.com/CruxCoach/CruxCoach/issues/44)
 
+**Update:** ideas 1, 2 and 3, the session recap and the milestones are now built into pull request #48: see [the statistics highlights](2026-11-01-statistics-highlights.md).
+
 Ideas for making the logbook statistics more useful and easier to read, each described by what it does. The pictures are drawings from a design test with made-up data on a German phone. They are **not in the app** and not in the pull request; they show how an idea could look.
 
 The redesigned views for #44 itself are in the [second-version report](2026-11-01-stats-across-boards.md).
