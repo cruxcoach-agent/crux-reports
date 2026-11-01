@@ -101,7 +101,9 @@ How the estimate works:
 - Climbing days per week shows a week without climbing as a gap, with the dashed average; sends per grade comes in the zone colours.
 - The three fixes from build 5 hold: the overview grows in, the period chips in the logbook filter match the other filter chips, the calendar starts at the first entry.
 - Not explained yet: the very first tap on the overview's "Statistiken" link right after the update did not open the statistics; five later taps did.
-- The recap with the three hardest sends came after this build; it is shown in the render above.
+- The recap with the three hardest sends came one build later (commit b2770231). On the phone it shows the day's hardest sends, and "Share as image" shows the card in the share menu's preview. The first tap on "Statistiken" after that update opened the statistics.
+
+![Session recap with the hardest sends on the phone](2026-11-01-phone-recap.png)
 
 **Test build 5** (commit 7d153ec9), before the 0.2.4 figures came back:
 
