@@ -10,4 +10,5 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Hold detection on synthetic walls](feat-spray-walls/2026-11-01-hold-detection.md) (2026-11-01): how the on-device hold detection for spray walls works and how well it finds holds on synthetic test walls.
 
 ### feat-0.2.5-analytics
-- [Stats across boards: first version](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01): what the new section shows, how tries are counted, two stills.
+- [Stats across boards](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01, second version): the redesigned charts, how tries are counted, stills in dark and light.
+- [Ideas for the statistics](feat-0.2.5-analytics/2026-11-01-stats-ideas.md) (2026-11-01): five drawn ideas and more, with a suggested order.
