@@ -13,3 +13,6 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 ### feat-0.2.5-analytics
 - [Stats across boards](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01, second version): the redesigned charts, how tries are counted, stills in dark and light.
 - [Ideas for the statistics](feat-0.2.5-analytics/2026-11-01-stats-ideas.md) (2026-11-01): five drawn ideas and more, with a suggested order.
+
+### release-0.2.5
+- [Phone test of spray walls and stats across boards](release-0.2.5/2026-11-01-phone-test-41-48.md) (2026-11-01): #48 checked against a made-up logbook with known results on three boards, plus the #41 phone test summary.
