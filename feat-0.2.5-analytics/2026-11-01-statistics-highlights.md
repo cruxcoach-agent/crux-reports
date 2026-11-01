@@ -82,7 +82,7 @@ How the estimate works:
 ![Session recap, dark](2026-11-01-session-recap.png)
 
 - Opens from the recap button next to a date in the logbook. The summary at the end of a timed session now shows the same card, with its time and intensity details below it.
-- The card shows the date, the boards, sends, flashes, tries, the hardest grade, the sends per grade and the milestones of that day. "Share as image" shares exactly this card through the phone's share menu.
+- The card shows the date, the boards, sends, flashes, tries and problems, the three hardest sends of the session (grade, name, board and angle, a flash marked; a problem sent twice shows once), the sends per grade and the milestones of that day. "Share as image" shares exactly this card through the phone's share menu.
 
 ## Light theme
 
@@ -90,6 +90,20 @@ How the estimate works:
 ![Statistics, upper half, light](2026-11-01-sheet-top-light.png)
 
 ## On the test phone
+
+**Test build 7** (commit 77e34527, the restored statistics), same made-up logbook:
+
+![Logbook top, statistics, 30 days on the phone](2026-11-01-phone-build7-1.png)
+![Climbing days per week, sends per grade, logbook filter on the phone](2026-11-01-phone-build7-2.png)
+
+- The overview shows climbing days, sends and the hardest grade side by side, with the per-week chip and the streak below.
+- The board chips show sends and best grade; the six period numbers show their changes for 30 days.
+- Climbing days per week shows a week without climbing as a gap, with the dashed average; sends per grade comes in the zone colours.
+- The three fixes from build 5 hold: the overview grows in, the period chips in the logbook filter match the other filter chips, the calendar starts at the first entry.
+- Not explained yet: the very first tap on the overview's "Statistiken" link right after the update did not open the statistics; five later taps did.
+- The recap with the three hardest sends came after this build; it is shown in the render above.
+
+**Test build 5** (commit 7d153ec9), before the 0.2.4 figures came back:
 
 Test build 5 (commit 7d153ec9) on the test phone, with the small made-up logbook of the earlier phone test: three boards, 21 entries.
 
