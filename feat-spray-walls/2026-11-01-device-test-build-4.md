@@ -56,3 +56,20 @@ The weak spots are hold colours close to the panel colour (blue on teal) and peo
 - Publishing a wall and following it from a second phone, and "Spraywände hier" in the map's place sheet
 - Taking the photo with the camera
 - Removing the camera data (location, device) from a photo: the test photos had none
+
+## Fixed after this test
+
+Everything above is fixed in commit [`c16da529`](https://github.com/CruxCoach/CruxCoach/pull/41/commits/c16da529f0fa6f9f1318efa12be5e5e3cecfd8be), which becomes test build 5. The fixes are not checked on a phone yet.
+
+| Found in build 4 | Change |
+|---|---|
+| Bug 1: the crop dialog's "Fertig" is squeezed | Two rows of buttons: rotate and reset, then cancel and done |
+| Bug 2: an empty "Früher" list after a restore | A filter with nothing left to show switches back to the first chip |
+| "Alle" only shows the current photo | Renamed to "Aktuell" ("Current" in English). Right after a reset, the empty list says that the earlier problems are under "Früher" |
+| A reset ends in the hold editor | Saving the holds of a reset goes back to the wall |
+| Portrait photos fill the screen | The photo height is capped: 45 % of the screen on the wall, 40 % on the versions screen, 35 % on the photo step, 65 % and 60 % on the problem page and editor. The old cap had no effect, so a portrait photo took its full height |
+| Orange text on orange buttons | The floating buttons use the app's accent colours: dark text on orange in the dark theme, white on dark orange in the light theme |
+| The photo shrinks when a hold is picked | The size row keeps its height. With no hold picked it says "Tippe einen Griff an, um seine Größe zu ändern oder ihn zu entfernen." |
+| Short stalls when a wall opens | Photos are loaded at the size the screen needs (1600 px on the wall instead of the full 3072 px) and are handed to the graphics chip while they load, not on the first frame |
+
+Automated tests on this commit: the 74 spray-wall tests pass (57 shared, 17 app), with two new ones for the filter fallback.
