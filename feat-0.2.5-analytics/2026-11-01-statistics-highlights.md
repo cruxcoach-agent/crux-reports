@@ -2,9 +2,26 @@
 
 Room: #feat-0.2.5-analytics · issue [#44](https://github.com/CruxCoach/CruxCoach/issues/44) · draft pull request [#48](https://github.com/CruxCoach/CruxCoach/pull/48)
 
-**Third version.** The first version of this report showed the new elements the maintainer chose from the [ideas](2026-11-01-stats-ideas.md): at a glance, milestones, how your boards feel, tries until the send and the session recap. The maintainer then asked to fit them into the existing statistics so that nothing is shown twice. This version shows the result: one overview at the top of the logbook, and statistics where every number and chart appears once.
+**Fourth version.** The first version of this report showed the new elements the maintainer chose from the [ideas](2026-11-01-stats-ideas.md): at a glance, milestones, how your boards feel, tries until the send and the session recap. The maintainer then asked to fit them into the existing statistics so that nothing is shown twice: one overview at the top of the logbook, and statistics where every number and chart appears once. That first cleanup dropped some figures 0.2.4 showed; this version brings all of them back inside the same cards, adds climbing days per week over time, and shows climbing days, sends and the hardest grade side by side in the overview.
 
 The renders come from the design test with a made-up logbook on three boards, on a German phone, dark and light. The phone section shows the same build on the test phone.
+
+## What 0.2.4 showed, and where it is now
+
+Checked against the 0.2.4 code. Nothing is gone; some numbers moved into another card.
+
+| 0.2.4 | Now |
+|---|---|
+| Best grade, sends, tries, climbing days, distinct problems, flash rate (logbook tiles) | The six period numbers at the top of the statistics, with changes; the overview shows climbing days, sends and hardest of the last 30 days |
+| Hardest flash, sends per day, sessions per week, week streak (records row) | Overview tiles and chips; biggest day and weeks in a row as milestones |
+| Board comparison (sends, best grade) | Board chips |
+| Rolling performance level | Progress, one line per board |
+| Grade pyramid | Grades: sends per grade, in the intensity-zone colours |
+| Outcomes by grade, flash donut | Grades: problems per grade |
+| Sent climbs per grade | The two grades views side by side |
+| Log entries over time, weekly volume | Activity: sends over time, entries over time |
+| Activity calendar, angles, hold heatmap | Unchanged |
+| Period comparison | The changes under the period numbers |
 
 ## What was shown twice
 
@@ -15,13 +32,14 @@ The renders come from the design test with a made-up logbook on three boards, on
 | Rolling level and hardest new send per month | One progress chart, one line per board |
 | Activity calendar, log entries over time, weekly volume | One activity card: calendar or entries per week |
 | Board chips and the tappable comparison table | Board chips, each with its sends |
-| Records row and period comparison | The overview card and the milestones |
+| Records row and period comparison | The overview card, the milestones and the changes under the period numbers |
 
 ## The logbook top
 
 ![Logbook top, dark](2026-11-01-glance-top.png)
 
-- One card instead of six tiles: the hardest send and hardest flash, the last 30 days against the 30 days before, and the milestones as small chips (weeks in a row, new grades, 50/100/250… sends, biggest day).
+- One card instead of six tiles: the hardest send and hardest flash, then the last 30 days against the 30 days before: climbing days, sends and the hardest grade side by side, each with its change.
+- Below, small chips: climbing days per week (the average of the last eight weeks) and the milestones (weeks in a row, new grades, 50/100/250… sends, biggest day).
 - It always covers the whole logbook and every board. Tapping it opens the statistics; the ⓘ explains the numbers.
 - The period chips of the list moved into the logbook filter, next to result, board and angle. The list and the statistics no longer share a period.
 - Each day in the list has a recap button next to its date.
@@ -31,15 +49,16 @@ The renders come from the design test with a made-up logbook on three boards, on
 ![Statistics, upper half, dark](2026-11-01-sheet-top.png)
 ![Statistics, lower half, dark](2026-11-01-sheet-bottom.png)
 
-1. **Filters:** the period, then the board chips (only with more than one board). Each board chip shows its sends in the period, so the chips are the comparison of how much you climb where.
-2. **The period in four numbers:** sends, tries, climbing days, problems.
+1. **Filters:** the period, then the board chips (only with more than one board). Each board chip shows its sends and best grade in the period ("Kilter 11 · 7a"), so the chips are the comparison of the boards.
+2. **The period in six numbers**, two rows of three: sends, tries and climbing days; problems, the hardest grade and the flash rate. For 30 or 90 days, a year or a custom range, each shows its change against the period of the same length before (the hardest grade in grade steps). These are the six tiles of the 0.2.4 logbook top.
 3. **How your boards feel** (only with enough data): one sentence and a dot per board on a scale of grades.
 4. **Progress:** the rolling performance level, one line per board when you look at all boards together, each line ending in its current grade.
-5. **Problems per grade:** each problem once, by its best result: flashed, sent later, or not sent yet. Tap a grade for its numbers.
+5. **Grades**, two views: problems per grade, each problem once by its best result (flashed, sent later, not yet sent); or sends per grade, every send with its repeats, in the intensity-zone colours (warm-up, optimal, limit). Tap a grade for its numbers.
 6. **Tries:** until the send (flash, 2, 3, 4–5, 6+ per board), per grade (one bar per board), per month (one line per board).
-7. **Activity:** the calendar, or entries per week by grade band on a time axis, so weeks off show as gaps.
+7. **Activity**, four views: the calendar; climbing days per week (weeks off as empty columns, over more than half a year the weekly average of each month, with the period's average as a dashed line); entries over time; sends over time. The last two are stacked by grade band, per week or per month for long periods.
 
-![Entries per week, dark](2026-11-01-weekly.png)
+![Period numbers with changes, sends per grade](2026-11-01-period-and-grade-sends.png)
+![Climbing days per week and sends over time, dark](2026-11-01-weekly.png)
 
 8. **Angles** and **holds**, as before.
 
@@ -82,6 +101,7 @@ Test build 5 (commit 7d153ec9) on the test phone, with the small made-up logbook
 - How your boards feel stays hidden here, because MoonBoard has only 2 sent problems. That is intended.
 - With only two problems, MoonBoard's bar in "tries until the send" is hollow, as the legend says.
 - "Share as image" opens the phone's share menu with the card as its preview.
+- These screenshots show build 5, before the 0.2.4 figures came back; the renders above show the current state.
 - Fixed after this check, in the next build: the overview appeared a moment after the list and pushed it down in one jump (it now grows in); the period chips in the logbook filter were orange unlike the other filter chips; the activity calendar started with empty months before the first entry.
 - Not checked on the phone: the end-of-session summary with the card (only in the renders), and the light theme (only in the renders).
 
@@ -98,6 +118,6 @@ None of these is built. Each could go into a place that already exists, so no ne
 
 ## Tests
 
-- At a glance, milestones and the recap (11 tests), the board feel and the tries buckets (5), stats across boards (9), the statistics computation (46), the statistics sheet with its info and activity selector (1), board colours (3): all pass locally. CI runs the full suite.
+- At a glance, milestones and the recap (11 tests), the board feel and the tries buckets (5), stats across boards (9), the statistics computation (51, including the period before, climbing days per week, monthly buckets and sends per grade), the statistics sheet with its info and activity selector (1), board colours (3): all pass locally. CI runs the full suite.
 - The removed charts took their tests with them. The tests on flash detection now check the grades chart instead of the donut.
 - The design test renders all pictures above; CI skips it.
