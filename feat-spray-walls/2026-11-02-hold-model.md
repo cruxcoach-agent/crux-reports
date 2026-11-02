@@ -2,7 +2,7 @@
 
 Draft pull request [#49](https://github.com/CruxCoach/CruxCoach/pull/49) (on top of [#41](https://github.com/CruxCoach/CruxCoach/pull/41)) replaces the classical hold detection with a trained segmentation model that runs on the phone and outlines every hold in its real shape. This report covers what was measured: holds found, precision, recall, gesture savings, time per photo and peak memory on a phone, for the published settings and the tuned ones.
 
-**Result:** on 28 labelled photos (1,940 holds) the tuned setting finds 93 % of the holds with 97 % precision. That saves 91 % of the hand corrections, against 13 % for the current detector. On a 2018 mid-range phone it takes about 27 s per photo and up to about 450 MB of memory.
+**Result:** on 28 labelled photos (1,940 holds) the tuned setting finds 93 % of the holds with 97 % precision. That saves 91 % of the hand corrections, against 13 % for the current detector. On a 2018 mid-range phone it takes about 25 s per photo and up to about 450 MB of memory.
 
 <img src="2026-11-02-hold-model-app.jpg" width="320" alt="The hold editor on the phone with every accepted hold drawn in its shape">
 
@@ -29,12 +29,12 @@ All 28 photos, 8 threads:
 | Setting | Precision | Recall | Gesture savings | Time per photo (median) | Peak memory |
 |---|---|---|---|---|---|
 | Current detector (classical) | 0.54 | 0.23 | 13 % | 6 s | 332 MB |
-| Published settings: 2×2 tiles, 1024 px, threshold 0.6 | 0.98 | 0.81 | 80 % | about 13 s ¹ | 421 MB |
-| Tuned: 3×3 tiles, 1536 px, duplicates at 0.3, threshold 0.5 | 0.97 | 0.93 | 91 % | 27 s ¹ | 452 MB |
+| Published settings: 2×2 tiles, 1024 px, threshold 0.6 | 0.97 | 0.81 | 79 % | 11.4 s | 425 MB |
+| Tuned: 3×3 tiles, 1536 px, duplicates at 0.3, threshold 0.5 | 0.96 | 0.93 | 91 % | 25.3 s | 447 MB |
 
 The phone finds the same holds as a server run of the same model: 91.0 % against 91.3 % gesture savings for the tuned setting, and 79.8 % against 80.1 % for the published one.
 
-¹ The accuracy and memory figures come from full runs over all 28 photos with test build 2 of #49. That build still scaled the photo with a Kotlin resampler, which took 15.5 s per photo (3×3) and 2.9 s (2×2) in a test build. From test build 4 on, the app uses Android's own bitmap scaling. On six photos that takes 0.2 s, and 3×3 then takes 27 s per photo (median; model 24 s, outlines 3 s). The 2×2 time is the build-2 time minus the old scaling. Full runs with build 4 were running when the phone went offline. On the server, the simpler bilinear scaling gives the same accuracy (91 %).
+These are the final runs with test build 5 of #49, which scales photos with Android's own bitmap functions (0.1–0.2 s). For 3×3 the time splits into 22.7 s for the model and 2.2 s for the outlines; for 2×2 into 10.3 s and 0.9 s. Loading the model once per editor session adds about 5 s. Earlier builds that scaled in Kotlin needed 15.5 s more per photo for 3×3.
 
 The times are from test builds, which are debuggable. The Kotlin parts (outlines) run faster in a release build; the model runs in native code either way.
 
@@ -68,8 +68,8 @@ All 28 photos, measured on the server with the same model file and pipeline and 
 
 | What | Time |
 |---|---|
-| Loading the model (once per editor session) | 4.6 s |
-| Model, per 312 px tile, 8 threads | about 2.7 s |
+| Loading the model (once per editor session) | 4.7–5.5 s |
+| Model, per 312 px tile, 8 threads | about 2.5 s |
 | Model, per tile, 4 threads | about 7 s |
 | Model, per tile, 2 threads | about 9 s |
 
@@ -84,7 +84,7 @@ The phone has 8 slow cores. With 4 threads the model seemed to run on the slower
 - **Textured walls:** on a moulded, rock-like gym wall the model sometimes suggests a relief feature as a hold.
 - **People:** with a climber in front of the wall, a few suggestions land on hands and shoes, though far fewer than with the current detector.
 
-Holds that a tile border cuts take their shape from the neighbouring tile that sees them whole. The holds found stay the same; the straight edges go away:
+Holds that a tile border cuts take their shape from the neighbouring tile that sees them whole. A hold too big for any tile to see whole is put together from its pieces. The holds found stay the same; the straight edges go away:
 
 <img src="2026-11-02-hold-model-seams.jpg" width="640" alt="Left: big holds with straight edges at tile borders. Right: the same holds in their whole shape">
 
@@ -96,7 +96,7 @@ Holds that a tile border cuts take their shape from the neighbouring tile that s
 
 - The hold editor offers the model download (33 MB) once. After that, hold finding runs without internet, shows its progress, and suggests holds with their outlines.
 - Holds keep their shape: it is stored with the hold, published with the wall version, and drawn filled in the role colour in problems. A hold without a shape is drawn as a circle.
-- Defaults: 3×3 tiles at 1536 px, duplicates at 0.3, threshold 0.5, all cores up to 8, native bitmap scaling, holds cut by a tile border take their uncut shape.
+- Defaults: 3×3 tiles at 1536 px, duplicates at 0.3, threshold 0.5, all cores up to 8, native bitmap scaling. Holds cut by a tile border take their uncut shape or are joined from their pieces.
 
 Not decided yet: whether the model is downloaded on demand or bundled, and whether this goes into 0.2.5 or 0.2.6.
 
