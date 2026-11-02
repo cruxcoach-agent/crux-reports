@@ -9,6 +9,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 ### feat-spray-walls
 - [Hold detection on synthetic walls](feat-spray-walls/2026-11-01-hold-detection.md) (2026-11-01): how the on-device hold detection for spray walls works and how well it finds holds on synthetic test walls.
 - [First test on a phone, test build 4](feat-spray-walls/2026-11-01-device-test-build-4.md) (2026-11-01): every step from adding a wall to deleting it, two bugs, rough edges, hold detection on a real photo, and the fixes for test build 5.
+- [A hold model on the phone](feat-spray-walls/2026-11-02-hold-model.md) (2026-11-02): the hold segmentation model in #49, measured on 28 labelled photos and a 2018 phone: precision, recall, gesture savings, time and memory, tuned settings.
 
 ### feat-0.2.5-analytics
 - [Stats across boards](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01, second version): the redesigned charts, how tries are counted, stills in dark and light.
