@@ -19,7 +19,7 @@ check.
 
 400 made-up logbooks over two years, drawn from wide ranges: how often and how regularly people climb (with busy
 weeks, an off-season and breaks), on one to four boards, at which angles, how hard, how stubbornly they project,
-how often they repeat, whether they train off the wall. 396 of them reach the full review. The test that checks
+how often they repeat, whether they train off the wall. All 400 reach the full review. The test that checks
 the thresholds is part of the code (`ClimberTypeCalibrationTest`), so a later change cannot quietly tip the balance.
 
 Three rules had to change shape, because their score grew with sheer volume and one type took everyone:
