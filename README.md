@@ -18,6 +18,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 
 ### feat-0.2.5-training
 - [Clear weight and count fields, phone test](feat-0.2.5-training/2026-11-06-weight-fields.md) (2026-11-06): #58 / PR #60 on two test builds: labels, "2 × 16 kg", totals, text input, own exercises, lb, three fixes from the first build, screenshots.
+- [Training simulation, overview](feat-0.2.5-training/2026-11-06-simulation-overview.md) (2026-11-06): #59 / PR #62: twelve synthetic athletes for 10–16 weeks through the training logic, the checks, two fixes, four questions; per-persona reports and day-by-day logs.
 
 ### release-0.2.5
 - [Phone test of spray walls and stats across boards](release-0.2.5/2026-11-01-phone-test-41-48.md) (2026-11-01): #48 checked against a made-up logbook with known results on three boards, plus the #41 phone test summary.
