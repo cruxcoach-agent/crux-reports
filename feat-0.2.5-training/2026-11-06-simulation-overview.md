@@ -1,7 +1,7 @@
 # Training simulation: overview (issue #59)
 
 Synthetic athletes run day by day through CruxCoach's real training logic, and automatic checks look at the suggestions over 10 to 16 weeks. One of them follows the comeback plan after a finger injury.
-Code and the fixes are in the draft pull request [#62](https://github.com/CruxCoach/CruxCoach/pull/62) (commit 707ecde58). The athlete model, the checks with their thresholds, and the sources are in `docs/en/TRAINING_SIMULATION.md` there.
+Code and the fixes are in the draft pull request [#62](https://github.com/CruxCoach/CruxCoach/pull/62) (commit df1fe8cbc). The athlete model, the checks with their thresholds, and the sources are in `docs/en/TRAINING_SIMULATION.md` there.
 These reports come from the full run at that commit. Every run is reproducible because each persona has a fixed seed.
 
 ## Findings
