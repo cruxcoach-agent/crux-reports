@@ -37,7 +37,7 @@ Not simulated yet: comeback plans for other regions, a plan started later than t
 
 ## Phone check of the new Today card
 
-Community build of df1fe8cbc on a test phone, set up with two training days a week and climbing logged on Wednesday and Thursday. On Friday, Today suggests "Mobility & recovery" with the reason "Your training days for this week are done, so today is for recovery. Pick a kind of training to train anyway." "Another suggestion" opens the kind picker; "Pull & push" gives a full training with the reason "Today as you chose."
+Community build of df1fe8cbc on a test phone (German UI in the pictures), set up with two training days a week and climbing logged on Wednesday and Thursday. On Friday, Today suggests "Mobility & recovery" with the reason "Your training days for this week are done, so today is for recovery. Pick a kind of training to train anyway." "Another suggestion" opens the kind picker; "Pull & push" gives a full training with the reason "Today as you chose."
 
 | Recovery after two of two days | Kind picker | The chosen training |
 |---|---|---|
