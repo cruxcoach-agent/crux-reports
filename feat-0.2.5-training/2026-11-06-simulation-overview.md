@@ -35,6 +35,14 @@ Result: the plan went from stage 0 to stage 5, one stage a week. The athlete end
 
 Not simulated yet: comeback plans for other regions, a plan started later than the injury, an athlete who does not follow the plan, the board logbook from the app's own board, and swaps or "another suggestion" on the card other than "too easy".
 
+## Phone check of the new Today card
+
+Community build of df1fe8cbc on a test phone, set up with two training days a week and climbing logged on Wednesday and Thursday. On Friday, Today suggests "Mobility & recovery" with the reason "Your training days for this week are done, so today is for recovery. Pick a kind of training to train anyway." "Another suggestion" opens the kind picker; "Pull & push" gives a full training with the reason "Today as you chose."
+
+| Recovery after two of two days | Kind picker | The chosen training |
+|---|---|---|
+| ![](2026-11-06-today-week-done.png) | ![](2026-11-06-today-kind-picker.png) | ![](2026-11-06-today-chosen-kind.png) |
+
 ## Flags at a glance
 
 | Persona | Weeks | Trainings | Climbing days | Safety | Load | Progress | Plan | Stacking |
