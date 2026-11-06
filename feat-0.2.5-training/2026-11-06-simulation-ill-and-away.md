@@ -9,7 +9,7 @@ Level intermediate, 75.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 | Week | Block | Trained | Climbed | Suggestions | Work sets done | Flags |
 |---|---|---|---|---|---|---|
 | 1 | intro | 4/3 | 2 | pull/push 3, board 2, legs/core 1, mobility 1 | 44 | – |
-| 2 | build | 3/3 | 2 | pull/push 4, board 2, legs/core 1 | 53 | 1 |
+| 2 | build | 3/3 | 2 | pull/push 3, board 2, legs/core 1, mobility 1 | 53 | – |
 | 3 | deload/build | 3/3 | 2 | pull/push 3, board 2, legs/core 1, mobility 1 | 51 | – |
 | 4 | build/deload | 1/3 | 0 | rest 6, pull/push 1 | 27 | – |
 | 5 | deload | 3/3 | 2 | board 2, pull/push 2, legs/core 2, rest 1 | 15 | – |
@@ -21,7 +21,7 @@ Level intermediate, 75.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 | 11 (away) | – | 0/0 | 0 |  | 0 | – |
 | 12 | build | 5/3 | 2 | pull/push 4, board 2, mobility 1 | 57 | – |
 | 13 | build/deload | 3/3 | 2 | pull/push 2, board 2, mobility 2, legs/core 1 | 65 | 2 |
-| 14 | deload | 5/3 | 2 | pull/push 2, board 2, mobility 2, legs/core 1 | 45 | 2 |
+| 14 | deload/build | 3/3 | 2 | pull/push 3, board 2, legs/core 1, mobility 1 | 52 | – |
 
 ## Key exercises
 
@@ -31,32 +31,32 @@ Level intermediate, 75.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 |---|---|---|---|
 | 1 left | 9.0 kg × 10 | 15.8 kg | 45.9 kg |
 | 1 right | 9.0 kg × 10 | 15.8 kg | 45.9 kg |
-| 2 left | 10.0 kg × 10 | 17.2 kg | 45.9 kg |
-| 2 right | 10.0 kg × 10 | 17.2 kg | 45.9 kg |
-| 3 left | 12.0 kg × 10 | 18.6 kg | 44.8 kg |
-| 3 right | 12.0 kg × 10 | 18.6 kg | 44.8 kg |
-| 4 left | – | 18.6 kg | 43.6 kg |
-| 4 right | – | 18.6 kg | 43.6 kg |
-| 5 left | 13.0 kg × 10 | 18.6 kg | 42.4 kg |
-| 5 right | 13.0 kg × 10 | 18.6 kg | 42.4 kg |
-| 6 left | – | 18.6 kg | 41.2 kg |
-| 6 right | – | 18.6 kg | 41.2 kg |
-| 7 left | 13.0 kg × 10 | 21.5 kg | 40.1 kg |
-| 7 right | 13.0 kg × 10 | 21.5 kg | 40.1 kg |
-| 8 left | 15.0 kg × 10 | 24.0 kg | 39.0 kg |
-| 8 right | 15.0 kg × 10 | 24.0 kg | 39.0 kg |
-| 9 left | – | 24.0 kg | 39.0 kg |
-| 9 right | – | 24.0 kg | 39.0 kg |
-| 10 left | – | 24.0 kg | 39.0 kg |
-| 10 right | – | 24.0 kg | 39.0 kg |
-| 11 left | – | 24.0 kg | 39.0 kg |
-| 11 right | – | 24.0 kg | 39.0 kg |
-| 12 left | – | 24.0 kg | 39.0 kg |
-| 12 right | – | 24.0 kg | 39.0 kg |
-| 13 left | 17.0 kg × 10 | 27.2 kg | 39.0 kg |
-| 13 right | 17.0 kg × 10 | 27.2 kg | 39.0 kg |
-| 14 left | – | 27.2 kg | 39.0 kg |
-| 14 right | – | 27.2 kg | 39.0 kg |
+| 2 left | 12.0 kg × 10 | 18.6 kg | 45.9 kg |
+| 2 right | 12.0 kg × 10 | 18.6 kg | 45.9 kg |
+| 3 left | 15.0 kg × 10 | 21.5 kg | 44.8 kg |
+| 3 right | 15.0 kg × 10 | 21.5 kg | 44.8 kg |
+| 4 left | – | 21.5 kg | 43.6 kg |
+| 4 right | – | 21.5 kg | 43.6 kg |
+| 5 left | 15.0 kg × 10 | 21.5 kg | 42.4 kg |
+| 5 right | 15.0 kg × 10 | 21.5 kg | 42.4 kg |
+| 6 left | – | 21.5 kg | 41.2 kg |
+| 6 right | – | 21.5 kg | 41.2 kg |
+| 7 left | 17.0 kg × 10 | 25.8 kg | 40.1 kg |
+| 7 right | 17.0 kg × 10 | 25.8 kg | 40.1 kg |
+| 8 left | 21.0 kg × 10 | 31.5 kg | 39.0 kg |
+| 8 right | 21.0 kg × 10 | 31.5 kg | 39.0 kg |
+| 9 left | – | 31.5 kg | 39.0 kg |
+| 9 right | – | 31.5 kg | 39.0 kg |
+| 10 left | – | 31.5 kg | 39.0 kg |
+| 10 right | – | 31.5 kg | 39.0 kg |
+| 11 left | – | 31.5 kg | 39.0 kg |
+| 11 right | – | 31.5 kg | 39.0 kg |
+| 12 left | – | 31.5 kg | 39.0 kg |
+| 12 right | – | 31.5 kg | 39.0 kg |
+| 13 left | 25.0 kg × 10 | 35.0 kg | 39.1 kg |
+| 13 right | 25.0 kg × 10 | 34.2 kg | 39.1 kg |
+| 14 left | – | 35.0 kg | 39.1 kg |
+| 14 right | – | 34.2 kg | 39.1 kg |
 
 **Dumbbell Wrist Curl** (est. 1RM of the total load)
 
@@ -113,19 +113,10 @@ Level intermediate, 75.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 | 12 right | 8.0 kg × 3 | 9.1 kg | 9.0 kg |
 | 13 left | – | 9.6 kg | 9.1 kg |
 | 13 right | – | 9.1 kg | 9.1 kg |
-| 14 left | 8.0 kg × 3 | 9.6 kg | 9.1 kg |
-| 14 right | 8.0 kg × 3 | 9.1 kg | 9.1 kg |
+| 14 left | 9.0 kg × 3 | 9.6 kg | 9.1 kg |
+| 14 right | 9.0 kg × 3 | 9.1 kg | 9.1 kg |
 
 ## Flagged moments
-
-**Load: The app's value is far from what the athlete can really do** (2)
-
-- Week 14, 2026-04-12 (sun): legs.single_leg_rdl (left): app 27.2 kg, true 39.0 kg after 7 sessions
-- Week 14, 2026-04-12 (sun): legs.single_leg_rdl (right): app 27.2 kg, true 39.0 kg after 7 sessions
-
-**Plan: A full training suggested after the week's training days are used up** (1)
-
-- Week 2, 2026-01-18 (sun): pull_push for 18 min after 5 of 5 training days this week
 
 **Plan: Weekly volume of an area far from its target** (2)
 

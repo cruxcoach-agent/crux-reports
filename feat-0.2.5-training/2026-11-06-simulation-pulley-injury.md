@@ -16,7 +16,7 @@ Level intermediate, 70.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 | 6 | intro | 3/3 | 0 | injury-safe 6, mobility 1 | 45 | – |
 | 7 | build | 3/3 | 0 | injury-safe 6, mobility 1 | 63 | – |
 | 8 | build/deload | 4/3 | 1 | injury-safe 3, mobility 2, pull/push 1, board 1 | 59 | – |
-| 9 | deload/build | 5/3 | 2 | pull/push 3, board 2, legs/core 1, mobility 1 | 54 | 1 |
+| 9 | deload/build | 5/3 | 2 | pull/push 2, board 2, mobility 2, legs/core 1 | 54 | – |
 | 10 | deload | 4/3 | 2 | pull/push 2, board 2, mobility 2, legs/core 1 | 45 | – |
 | 11 | intro | 4/3 | 2 | pull/push 3, board 2, legs/core 1, mobility 1 | 47 | – |
 | 12 | build | 4/3 | 2 | pull/push 2, board 2, legs/core 2, mobility 1 | 61 | – |
@@ -31,32 +31,32 @@ Level intermediate, 70.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 |---|---|---|---|
 | 1 left | 8.0 kg × 10 | 14.3 kg | 36.9 kg |
 | 1 right | 8.0 kg × 10 | 14.3 kg | 36.9 kg |
-| 2 left | 10.0 kg × 10 | 15.8 kg | 36.9 kg |
-| 2 right | 10.0 kg × 10 | 15.8 kg | 36.9 kg |
-| 3 left | 11.0 kg × 10 | 18.6 kg | 36.0 kg |
-| 3 right | 11.0 kg × 10 | 18.6 kg | 36.0 kg |
-| 4 left | 13.0 kg × 10 | 20.0 kg | 35.0 kg |
-| 4 right | 13.0 kg × 10 | 20.0 kg | 35.0 kg |
-| 5 left | 14.0 kg × 10 | 21.5 kg | 34.0 kg |
-| 5 right | 14.0 kg × 10 | 21.5 kg | 34.0 kg |
-| 6 left | 15.0 kg × 10 | 23.2 kg | 33.1 kg |
-| 6 right | 15.0 kg × 10 | 23.2 kg | 33.1 kg |
-| 7 left | 17.0 kg × 10 | 27.2 kg | 32.2 kg |
-| 7 right | 17.0 kg × 10 | 27.2 kg | 32.2 kg |
-| 8 left | 18.0 kg × 10 | 27.2 kg | 31.3 kg |
-| 8 right | 18.0 kg × 10 | 27.2 kg | 31.3 kg |
-| 9 left | 19.0 kg × 10 | 28.7 kg | 31.3 kg |
-| 9 right | 19.0 kg × 10 | 28.7 kg | 31.3 kg |
-| 10 left | – | 28.7 kg | 31.3 kg |
-| 10 right | – | 28.7 kg | 31.3 kg |
-| 11 left | 20.0 kg × 10 | 30.1 kg | 31.4 kg |
-| 11 right | 20.0 kg × 10 | 29.4 kg | 31.4 kg |
-| 12 left | – | 30.1 kg | 31.4 kg |
-| 12 right | – | 29.4 kg | 31.4 kg |
-| 13 left | 22.0 kg × 10 | 30.1 kg | 31.5 kg |
-| 13 right | 22.0 kg × 10 | 29.4 kg | 31.5 kg |
-| 14 left | – | 30.1 kg | 31.5 kg |
-| 14 right | – | 29.4 kg | 31.5 kg |
+| 2 left | 12.0 kg × 10 | 17.2 kg | 36.9 kg |
+| 2 right | 12.0 kg × 10 | 17.2 kg | 36.9 kg |
+| 3 left | 15.0 kg × 10 | 22.9 kg | 36.0 kg |
+| 3 right | 15.0 kg × 10 | 22.9 kg | 36.0 kg |
+| 4 left | 16.0 kg × 10 | 25.2 kg | 35.0 kg |
+| 4 right | 16.0 kg × 10 | 25.2 kg | 35.0 kg |
+| 5 left | 18.0 kg × 10 | 27.2 kg | 34.0 kg |
+| 5 right | 18.0 kg × 10 | 27.2 kg | 34.0 kg |
+| 6 left | 19.0 kg × 10 | 29.4 kg | 33.1 kg |
+| 6 right | 19.0 kg × 10 | 29.4 kg | 33.1 kg |
+| 7 left | 21.0 kg × 10 | 30.1 kg | 33.1 kg |
+| 7 right | 21.0 kg × 10 | 30.8 kg | 33.1 kg |
+| 8 left | 21.0 kg × 10 | 30.1 kg | 33.2 kg |
+| 8 right | 21.0 kg × 10 | 30.8 kg | 33.2 kg |
+| 9 left | 22.0 kg × 10 | 31.5 kg | 33.2 kg |
+| 9 right | 22.0 kg × 10 | 31.5 kg | 33.2 kg |
+| 10 left | – | 31.5 kg | 33.2 kg |
+| 10 right | – | 31.5 kg | 33.2 kg |
+| 11 left | 23.0 kg × 10 | 31.5 kg | 33.3 kg |
+| 11 right | 23.0 kg × 10 | 32.2 kg | 33.3 kg |
+| 12 left | – | 31.5 kg | 33.3 kg |
+| 12 right | – | 32.2 kg | 33.3 kg |
+| 13 left | 23.0 kg × 10 | 31.5 kg | 33.4 kg |
+| 13 right | 23.0 kg × 10 | 32.2 kg | 33.4 kg |
+| 14 left | – | 31.5 kg | 33.4 kg |
+| 14 right | – | 32.2 kg | 33.4 kg |
 
 **Turkish Get-Up** (est. 1RM of the total load)
 
@@ -125,16 +125,12 @@ Level intermediate, 70.0 kg body weight, 14 weeks, training on Mon/Wed/Sat, clim
 | 10 | – | 37.3 kg | 59.6 kg |
 | 11 | 13.0 kg × 10 | 40.1 kg | 59.7 kg |
 | 12 | 13.0 kg × 10 | 40.1 kg | 59.7 kg |
-| 13 | 14.0 kg × 10 | 45.3 kg | 59.8 kg |
-| 14 | 16.0 kg × 10 | 50.7 kg | 59.9 kg |
+| 13 | 16.0 kg × 10 | 48.7 kg | 59.8 kg |
+| 14 | 20.0 kg × 10 | 56.0 kg | 59.9 kg |
 
 ## Flagged moments
 
 **Load: The app's value is far from what the athlete can really do** (1)
 
-- Week 14, 2026-04-12 (sun): legs.goblet_squat: app 30.0 kg, true 76.8 kg after 4 sessions
-
-**Plan: A full training suggested after the week's training days are used up** (1)
-
-- Week 9, 2026-03-08 (sun): pull_push for 50 min after 5 of 5 training days this week
+- Week 14, 2026-04-12 (sun): legs.goblet_squat: app 34.5 kg, true 81.4 kg after 4 sessions
 
