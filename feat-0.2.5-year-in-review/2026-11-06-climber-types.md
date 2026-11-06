@@ -1,6 +1,6 @@
 # Year in review: climber types, a proposal (#64)
 
-*2026-11-06, second version: with the maintainer's decision.*
+*2026-11-06, third version: with the maintainer's decision and the calibrated thresholds.*
 
 ## Decision (2026-11-06)
 
@@ -14,6 +14,41 @@
 The thresholds are calibrated on synthetic logbooks so that no type, All-Rounder included, takes more than about a
 quarter of them. Once the type card is in a test build, the room is asked which type people get, as the real-world
 check.
+
+## Calibration (2026-11-06, third version)
+
+400 made-up logbooks over two years, drawn from wide ranges: how often and how regularly people climb (with busy
+weeks, an off-season and breaks), on one to four boards, at which angles, how hard, how stubbornly they project,
+how often they repeat, whether they train off the wall. 396 of them reach the full review. The test that checks
+the thresholds is part of the code (`ClimberTypeCalibrationTest`), so a later change cannot quietly tip the balance.
+
+Three rules had to change shape, because their score grew with sheer volume and one type took everyone:
+
+- **Projector:** "5 problems after 10+ tries" became a share: at least 8 % of the new problems took 10 tries or
+  more. A busy climber reached five such problems by spring, so 63 % of the logbooks were Projectors.
+- **Board Hopper:** scored by the share of the third board, so three boards used evenly count more than three
+  boards where one barely shows.
+- **Comeback Kid:** a fixed score once the rule is met. Scoring by the length of the break let every long summer
+  break outweigh all other types.
+
+The thresholds now, and how many of the logbooks get each type:
+
+| Type | Rule (all within the year) | Share |
+|---|---|---|
+| Flash Machine | at least 70 % of the new problems flashed (at least 20) | 7 % |
+| Projector | at least 8 % of the new problems took 10+ tries, or 3.5 tries on average (at least 15) | 13 % |
+| Mileage Monster | 14 sends per board day on average (at least 20 days) | 7 % |
+| Steep Specialist | at least 75 % of the entries at 45° or steeper (MoonBoard: 40°) | 11 % |
+| Board Hopper | a third board with at least 10 % of the entries | 14 % |
+| Clockwork | climbing in 85 % of the weeks, or a run of 16 weeks | 14 % |
+| Rising Star | +2 grades on the main board over last year, or first to last three months | 8 % |
+| Strength Lab | 20 workouts, on at least 45 % of the training days | 13 % |
+| Comeback Kid | a finished comeback plan, or 8+ climbing days after a break of 8 weeks | 4 % |
+| All-Rounder | nothing else fits | 5 % |
+
+76 % of the logbooks also fit a second type, shown small as "also". Explorer and Repeat Lover stay in reserve. The
+numbers rest on made-up logbooks only; the real check is asking the room which type people get once it is in a
+test build.
 
 ---
 
