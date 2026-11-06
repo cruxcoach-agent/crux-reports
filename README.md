@@ -20,6 +20,9 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Clear weight and count fields, phone test](feat-0.2.5-training/2026-11-06-weight-fields.md) (2026-11-06): #58 / PR #60 on two test builds: labels, "2 × 16 kg", totals, text input, own exercises, lb, three fixes from the first build, screenshots.
 - [Training simulation, overview](feat-0.2.5-training/2026-11-06-simulation-overview.md) (2026-11-06): #59 / PR #62: twelve synthetic athletes for 10–16 weeks through the training logic, the checks, two fixes, four questions; per-persona reports and day-by-day logs.
 
+### feat-hold-types
+- [Hold types, a taxonomy proposal](feat-hold-types/2026-11-06-taxonomy.md) (2026-11-06): three options for what a hold label contains (type, size class, direction, two uses, foot-only holds), how computed labels relate to the manual log tags, a recommendation and seven questions (#63).
+
 ### feat-0.2.5-year-in-review
 - [Climber types, a proposal](feat-0.2.5-year-in-review/2026-11-06-climber-types.md) (2026-11-06): ten rule-based types for the year in review (#64), English and German names, how one is picked, open questions.
 
