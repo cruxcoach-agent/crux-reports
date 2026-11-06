@@ -16,5 +16,8 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Ideas for the statistics](feat-0.2.5-analytics/2026-11-01-stats-ideas.md) (2026-11-01): five drawn ideas and more, with a suggested order.
 - [Logbook statistics, reorganised](feat-0.2.5-analytics/2026-11-01-statistics-highlights.md) (2026-11-01, third version): one overview on the logbook, every statistic once, with how your boards feel, tries until the send, milestones and the session recap; renders and phone screenshots.
 
+### feat-0.2.5-training
+- [Clear weight and count fields, phone test](feat-0.2.5-training/2026-11-06-weight-fields.md) (2026-11-06): #58 / PR #60 on two test builds: labels, "2 × 16 kg", totals, text input, own exercises, lb, three fixes from the first build, screenshots.
+
 ### release-0.2.5
 - [Phone test of spray walls and stats across boards](release-0.2.5/2026-11-01-phone-test-41-48.md) (2026-11-01): #48 checked against a made-up logbook with known results on three boards, plus the #41 phone test summary.
