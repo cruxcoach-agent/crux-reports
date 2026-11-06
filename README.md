@@ -24,7 +24,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Hold types, a taxonomy proposal](feat-hold-types/2026-11-06-taxonomy.md) (2026-11-06): three options for what a hold label contains (type, size class, direction, two uses, foot-only holds), how computed labels relate to the manual log tags, a recommendation and seven questions (#63).
 
 ### feat-0.2.5-year-in-review
-- [Climber types, a proposal](feat-0.2.5-year-in-review/2026-11-06-climber-types.md) (2026-11-06): ten rule-based types for the year in review (#64), English and German names, how one is picked, open questions.
+- [Climber types, a proposal](feat-0.2.5-year-in-review/2026-11-06-climber-types.md) (2026-11-06, with the decision): ten rule-based types for the year in review (#64), English and German names, how one is picked, and what was decided.
 
 ### release-0.2.5
 - [Phone test of spray walls and stats across boards](release-0.2.5/2026-11-01-phone-test-41-48.md) (2026-11-01): #48 checked against a made-up logbook with known results on three boards, plus the #41 phone test summary.

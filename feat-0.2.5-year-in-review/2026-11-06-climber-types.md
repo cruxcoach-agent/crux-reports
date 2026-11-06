@@ -1,6 +1,23 @@
 # Year in review: climber types, a proposal (#64)
 
-*2026-11-06, first version. For the maintainer's decision before the climber-type card is built.*
+*2026-11-06, second version: with the maintainer's decision.*
+
+## Decision (2026-11-06)
+
+1. The ten types stay. Explorer and Repeat Lover are kept in reserve, in case calibration shows a type that almost
+   nobody or almost everybody gets.
+2. Picking: B, the strongest match. If there is time before the test build, one small "also" type is added (C with
+   one, not two).
+3. German names: a, the neutral nouns as listed.
+4. Comeback Kid: only "after a break", on the card and in the image, never an injury.
+
+The thresholds are calibrated on synthetic logbooks so that no type, All-Rounder included, takes more than about a
+quarter of them. Once the type card is in a test build, the room is asked which type people get, as the real-world
+check.
+
+---
+
+*The proposal as it was put to the decision:*
 
 The year in review ([#64](https://github.com/CruxCoach/CruxCoach/issues/64)) ends with "your climber type": a
 fun, rule-based type, so that everyone above the minimum amount of data gets one, with the rule shown on the card.
