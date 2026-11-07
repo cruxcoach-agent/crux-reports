@@ -2,7 +2,7 @@
 
 Room: #feat-0.2.5-analytics · issue [#44](https://github.com/CruxCoach/CruxCoach/issues/44) · draft pull request [#48](https://github.com/CruxCoach/CruxCoach/pull/48)
 
-**Fourth version.** The first version of this report showed the new elements the maintainer chose from the [ideas](2026-11-01-stats-ideas.md): at a glance, milestones, how your boards feel, tries until the send and the session recap. The maintainer then asked to fit them into the existing statistics so that nothing is shown twice: one overview at the top of the logbook, and statistics where every number and chart appears once. That first cleanup dropped some figures 0.2.4 showed; this version brings all of them back inside the same cards, adds climbing days per week over time, and shows climbing days, sends and the hardest grade side by side in the overview.
+**Fifth version (7 November):** the fixes from the maintainer's review, with renders and a check on the test phone with a long logbook, are in the section [Review round](#review-round-7-november) below. Before that, the first version of this report showed the new elements the maintainer chose from the [ideas](2026-11-01-stats-ideas.md): at a glance, milestones, how your boards feel, tries until the send and the session recap. The maintainer then asked to fit them into the existing statistics so that nothing is shown twice: one overview at the top of the logbook, and statistics where every number and chart appears once. That first cleanup dropped some figures 0.2.4 showed; the fourth version brought all of them back inside the same cards, added climbing days per week over time, and showed climbing days, sends and the hardest grade side by side in the overview.
 
 The renders come from the design test with a made-up logbook on three boards, on a German phone, dark and light. The phone section shows the same build on the test phone.
 
@@ -13,12 +13,12 @@ Checked against the 0.2.4 code. Nothing is gone; some numbers moved into another
 | 0.2.4 | Now |
 |---|---|
 | Best grade, sends, tries, climbing days, distinct problems, flash rate (logbook tiles) | The six period numbers at the top of the statistics, with changes; the overview shows climbing days, sends and hardest of the last 30 days |
-| Hardest flash, sends per day, sessions per week, week streak (records row) | Overview tiles and chips; biggest day and weeks in a row as milestones |
+| Hardest flash, sends per day, sessions per week, week streak (records row) | The bests row under the six numbers, for the chosen period and board; the overview keeps the hardest flash, the running streak and the eight-week average |
 | Board comparison (sends, best grade) | Board chips |
 | Rolling performance level | Progress, one line per board |
 | Grade pyramid | Grades: sends per grade, in the intensity-zone colours |
 | Outcomes by grade, flash donut | Grades: problems per grade |
-| Sent climbs per grade | The two grades views side by side |
+| Sent climbs per grade | Tap a grade: its sends and the problems behind them |
 | Log entries over time, weekly volume | Activity: sends over time, entries over time |
 | Activity calendar, angles, hold heatmap | Unchanged |
 | Period comparison | The changes under the period numbers |
@@ -33,6 +33,47 @@ Checked against the 0.2.4 code. Nothing is gone; some numbers moved into another
 | Activity calendar, log entries over time, weekly volume | One activity card: calendar or entries per week |
 | Board chips and the tappable comparison table | Board chips, each with its sends |
 | Records row and period comparison | The overview card, the milestones and the changes under the period numbers |
+
+## Review round (7 November)
+
+The maintainer reviewed the pull request and asked for nine fixes before it is ready. All of them are in commit cba69441; the two small fixes the phone check found are in commit 6fcfcfd3.
+
+1. **Session recap at the end of a timed session:** flashes now count tries from earlier days, as the recap in the logbook does. A first-go send of a problem you tried before is no flash on the card you share.
+2. **Climbing days per week:** the chart spans the whole period, from your first entry at the earliest until today. A month only partly inside the period, like the current month, counts only its days inside it. The average is taken over the whole period, not from the first to the last active week.
+3. **Repeats per grade:** tap a grade in either grades view to see its sends and the problems behind them ("20 sends · 20 problems"); the difference is the repeats.
+4. **Bests of the period**, back as a row under the six numbers, for the chosen period and board: hardest flash, sends in one day (with the day), climbing days a week and weeks in a row. The overview keeps the running streak and the eight-week average.
+5. **Sends over time** counts sends without a grade, in grey, so the columns add up to the sends number.
+6. Switching the period quickly can no longer show the numbers of the period chosen before.
+7. **The card at the end of a timed session** shows only the milestones that session reached, not those of an earlier session the same day.
+8. Smaller ones: "30 days" are today and the 29 days before, so they compare 30 days with 30; near V0, how wide a grade is now measured inside the graded range (before, board feel differences near V0 looked smaller than they are); "tries per month" shows every month of the period, keeps months without a first send as gaps (a faint dashed line) and scrolls sideways for long logbooks, starting at the newest month; tapping a month works again after a period change; at the largest font sizes the numbers stand two to a row so their labels keep whole words; the changelog names the three hardest sends.
+9. The release-gate flow for the honest flash and the statistics is rewritten for the new layout.
+
+![The six numbers and the bests, dark](2026-11-07-period-bests.png)
+![The six numbers and the bests, light](2026-11-07-period-bests-light.png)
+![Sends per grade with one grade tapped](2026-11-07-grade-sends-open.png)
+![A three-year logbook: tries per month scrolled to the newest month, sends over time with sends without a grade, climbing days per week with the break kept](2026-11-07-long-logbook.png)
+![The overview, the period numbers and the angles at the largest font size](2026-11-07-largest-font.png)
+
+### On the test phone
+
+Test build 9 (commit cba69441) with a made-up logbook of three years: 3,038 entries on three boards, a four-month break, sends without a grade, and a new hardest grade this morning.
+
+![The statistics with the bests, a grade tapped, tries per month at the newest month](2026-11-07-phone-1.png)
+![Tries per month scrolled back to the break, climbing days per week and sends over time for the whole logbook](2026-11-07-phone-2.png)
+![The card at the end of a timed session, the day's recap in the logbook, the statistics at the largest font size](2026-11-07-phone-3.png)
+
+- **End of a timed session:** one try on a problem before the session, then a first-go send of it in a timed list session. The card shows 0 flashes and no milestones. This morning's new grade stays off it, because the session did not reach it. The day's recap in the logbook shows the whole day with the new grade, and the session's send is no flash there either.
+- **Climbing days per week:** over 90 days the weekly view has all 13 weeks with the average over the whole period. Over three years the monthly view keeps the break, and November counts only its first seven days.
+- **Bests, repeats, sends:** the bests follow the period and board. Tapping 6c+ shows "156 Begehungen · 143 Boulder", and flash, later send and open add up to the 143. Sends over time add up to 2,601, the sends number.
+- **30 days:** the statistics' 30 days now show the same numbers as the overview's last 30 days. Tapping "1 year" and then right away "30 days" ends on 30 days.
+- **Tries per month** opens at the newest month, scrolls back to the break, which shows as a dashed line, and a tap selects a month again after a period change.
+- **Largest font size:** the overview, the six numbers and the bests keep whole words.
+- Found here and fixed in commit 6fcfcfd3: the angle count wrapped onto two lines at the largest font size, and a progress line ending at the very top had its grade cut off.
+- Not new, but worth knowing: with 3,038 entries the overview appears about 7 seconds after the logbook opens; the list shows after about one. Computing all the statistics takes about 100 ms on the server, so the time goes into reading the logbook, the same way 0.2.4 filled its tiles.
+
+### The release-gate flow
+
+`logbook-honest-flash-and-stats` is rewritten for the new layout. On the test phone the app's test tags do not show up as ids, so the flow finds everything by its German text or description, as the testing guide recommends. It logs three tries and a first-go send on the same problem, checks the overview, that the send is no flash, the day's recap and the statistics with their bests, and deletes both entries again. Each step was walked by hand on test build 9. Doing so showed that the logbook puts comments in quotes, so the flow now finds its markers inside the text. The other logbook flows still use test tags that are gone; that is a separate follow-up.
 
 ## The logbook top
 
@@ -134,6 +175,7 @@ None of these is built. Each could go into a place that already exists, so no ne
 
 ## Tests
 
-- At a glance, milestones and the recap (11 tests), the board feel and the tries buckets (5), stats across boards (9), the statistics computation (51, including the period before, climbing days per week, monthly buckets and sends per grade), the statistics sheet with its info and activity selector (1), board colours (3): all pass locally. CI runs the full suite.
+- Review round: all 507 tests of the statistics package pass locally on both commits, among them the new ones for the period, climbing days per week over the whole period, the bests, sends without a grade, the session's own milestones, flashes at the end of a session and the grade width near V0.
+- Earlier: at a glance, milestones and the recap (11 tests), the board feel and the tries buckets (5), stats across boards (9), the statistics computation (51, including the period before, climbing days per week, monthly buckets and sends per grade), the statistics sheet with its info and activity selector (1), board colours (3): all pass locally. CI runs the full suite.
 - The removed charts took their tests with them. The tests on flash detection now check the grades chart instead of the donut.
 - The design test renders all pictures above; CI skips it.
