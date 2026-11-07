@@ -1,7 +1,8 @@
 # Hold types: every board, a check screen, and the first stats to choose from (#63)
 
-*2026-11-07, night pass. None of these labels has been checked against a reference set yet. The Kilter blind round
-in the test build will give the first measured accuracy.*
+*2026-11-07, night pass, updated the same day: Shiny Wall labelled, licence decided, stats 1 and 2 computed. None of
+these labels has been checked against a reference set yet. The Kilter blind round in the test build will give the
+first measured accuracy.*
 
 Since the [first Kilter pass](2026-11-06-kilter-first-pass.md), the other boards have their first labels too. They
 use the same taxonomy and fields as Kilter (see the [taxonomy report](2026-11-06-taxonomy.md)): type, optional
@@ -23,10 +24,16 @@ current catalogue.
 | Decoy (two layouts) | 1,036 | 454 | 2 | 580 | the image of layout 1 shows placeholder discs (578); 2 holds are not in any image |
 | So iLL | 340 | 0 | 235 | 105 | the board image is a drawing: it shows outlines and often the rim, not the kind of grip |
 | Touchstone | 648 | – | – | 648 | the board image shows flat outlines only |
-| Shiny Wall | 2,042 | – | – | 2,042 | the board images show flat outlines only |
-| **All** | **8,428** | **4,381** | **237** | **3,810** | |
+| Shiny Wall (five wall sizes) | 2,042 | 2,042 | – | 0 | |
+| **All** | **8,428** | **6,423** | **237** | **1,768** | |
 
 Shiny Wall's placements overlap between its five wall sizes, so it has fewer physical holds than placements.
+- **Pictures:** its wall images in the app show flat outlines. Its labels come from the single hold pictures that
+  those wall images are built from.
+- **Matching:** every placement was matched to its picture, 567 pictures in all, so a label reaches every wall size
+  the hold is on.
+- **Confidence:** the pictures are flat renders with soft shading. Of the 2,042 labels, 524 have medium type
+  confidence and the rest low. Only the medium ones count in the stats.
 
 ## How the labels were made
 
@@ -53,6 +60,7 @@ Shiny Wall's placements overlap between its five wall sizes, so it has fewer phy
 | Grasshopper | photos | 9 / 312 / 145 | 4 / 192 / 270 | 280 |
 | Decoy | photos (layout 2) | 18 / 169 / 267 | 4 / 124 / 328 | 908 |
 | So iLL | drawing | – | 0 / 84 / 151 | 340 |
+| Shiny Wall | single hold pictures | 0 / 524 / 1,518 | 0 / 502 / 1,540 | 1,772 |
 
 Direction is the weakest field everywhere: from straight in front, which side carries the rim is often a guess.
 
@@ -63,8 +71,11 @@ measured accuracy per board, not just for Kilter. That is why the other boards h
 
 ## Delivery
 
-As proposed in the [delivery report](2026-11-06-delivery.md): one JSON file per board in the app, labels only. The six
-files are 3 to 16 KB compressed each, 65 KB together. No database change.
+As proposed in the [delivery report](2026-11-06-delivery.md) and decided: one JSON file per board in the app, labels
+only, and a chunk in the signed manifests later.
+- **Size:** the seven files are 3 to 26 KB compressed each, 90 KB together.
+- **No database change.**
+- **Licence:** the label files are licensed CC BY 4.0, stated in a README next to them. The app's code stays GPL-3.0.
 
 ## Review in test builds
 
@@ -114,7 +125,15 @@ confidence, and say how many holds they rest on. Manual hold tags on a log stay 
    stable by about 25 November.
 5. **Training hint.** The type you climb least, with problems that are heavy in it.
 
-Recommendation: 1 and 2 first, on top of the rebuilt logbook stats; 3 when direction has a measured accuracy.
+Decided: 1 and 2 first. Whether 4 comes is decided after the Kilter blind round.
+
+Both are computed now, as functions with tests:
+- In the mix, every problem counts equally.
+- A type dominates a problem when it makes up at least 40 % of the problem's counted hand holds.
+- A strong or weak verdict needs at least five such problems, and a send rate at least 15 points above or below your
+  rate on the board.
+
+The screens follow on top of the rebuilt logbook stats (#48) once that is merged.
 
 ## Ideas for the send probability (not part of this work)
 
@@ -124,8 +143,9 @@ Recommendation: 1 and 2 first, on top of the rebuilt logbook stats; 3 when direc
 
 ## Open
 
-- The labels of Touchstone, Shiny Wall and most of So iLL need better pictures than the app has.
+- The labels of Touchstone and most of So iLL need better pictures than the app has.
 - Accuracy per board, from the blind rounds.
-- Three MoonBoard Masters 2019 cells where the hold in the picture does not have the colour of the set the app's
-  hold-set map gives it (J2 and E3 listed as Hold Set B, E2 as Original School). This may be a hold-set map error;
-  it is worth a separate check.
+- At three MoonBoard Masters 2019 cells, the hold in the picture does not have the colour of the set that the app's
+  hold-set map gives it: [#74](https://github.com/CruxCoach/CruxCoach/issues/74).
+- The app's Kilter Homewall 10×12 image shows placeholder discs at 24 positions. A replacement with the current image
+  is in [#75](https://github.com/CruxCoach/CruxCoach/pull/75).
