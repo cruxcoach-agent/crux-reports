@@ -25,6 +25,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Hold types, a taxonomy proposal](feat-hold-types/2026-11-06-taxonomy.md) (2026-11-06, with the decision): three options for what a hold label contains (type, size class, direction, two uses, foot-only holds), how computed labels relate to the manual log tags, and what was decided (#63).
 - [The first Kilter pass](feat-hold-types/2026-11-06-kilter-first-pass.md) (2026-11-06, second version): 1,140 of 1,191 Kilter placements labelled, how, results per layout, confidence, the review list and the two-round reference check (#63).
 - [How the labels reach the app](feat-hold-types/2026-11-06-delivery.md) (2026-11-06): a file in the app, a chunk in the signed catalogue manifests, or both; size, update path, signing, and a recommendation (#63).
+- [Every board, a check screen, and the first stats](feat-hold-types/2026-11-07-all-boards.md) (2026-11-07): coverage of all eight boards, how the labels were made (mirror rule, foot only), confidence per board, the label check in test builds, and five stats to choose from (#63).
 
 ### feat-0.2.5-year-in-review
 - [Climber types, a proposal](feat-0.2.5-year-in-review/2026-11-06-climber-types.md) (2026-11-06, third version): ten rule-based types for the year in review (#64), English and German names, how one is picked, the decision and the calibrated thresholds.
