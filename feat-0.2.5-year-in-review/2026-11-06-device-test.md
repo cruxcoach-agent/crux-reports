@@ -1,6 +1,6 @@
 # Year in review: phone test (#64, PR #67)
 
-*2026-11-06. Test builds 1, 3, 5 and 7 of `feat/0.2.5-year-in-review` (PR #67) on an Android 15 phone.*
+*2026-11-06 and 07. Test builds 1, 3, 5, 7, 8 and 9 of `feat/0.2.5-year-in-review` (PR #67) on an Android 15 phone.*
 
 ## In short
 
@@ -11,8 +11,13 @@
   it for that year; the entry in the statistics stays.
 - Every page shares as an image drawn on the phone: 1080×1920 per page, 1080×1080 for the summary. Your name,
   problem names and exact dates are off by default.
-- Thirteen bugs and rough edges were found on the phone and fixed, most of them at the largest font size and in
-  German. Test build 7 has all fixes.
+- A new page, "Hold by hold", counts the holds you touched on your sends (test build 8). Its numbers matched the count
+  from the raw logs on both dates.
+- Turning animations off in the system stops the page fade, checked on a screen recording.
+- What a screen reader gets is now checked by a test on every build: the list, the headings, the named share buttons
+  and the page actions.
+- Fourteen bugs and rough edges were found on the phone and fixed, most of them at the largest font size and in
+  German. Test build 9 has all fixes.
 - Not done yet: a check with TalkBack itself (see the questions at the end).
 
 ## The test data
@@ -23,6 +28,7 @@ A made-up logbook over 2025 and 2026, built so that its results are known in adv
 - **Tension**, imported like an Aurora export (UTC times, some of them past local midnight)
 - **MoonBoard**, imported like the MoonBoard app's logbook (the day only)
 - climbing days logged by hand, workouts with times and best values
+- from test build 8 on, every sent problem with 4 to 12 made-up holds, so that the holds touched can be counted
 - a few climbs logged by hand with hold type tags, which the import skipped (see question 3)
 - a second, tiny logbook for 2024: four climbing days and five sends, below the minimum
 
@@ -51,9 +57,11 @@ The year so far, on 1 December 2026:
 | Biggest day / longest project | 1 January, 12 sends / 40 tries over 4 sessions | same |
 | Off the wall | 26 workouts on 26 days, 24 h 30 min | 26, 26, 1,470 min |
 | Climber type | Board Hopper (third board 18 %), also Clockwork (18 weeks in a row) | strongest score Board Hopper 1.84, next Clockwork 1.12 |
+| Holds touched (build 8) | 3,705, 8 per send, most 12 on one problem | 3,705 from 464 sends, 8.0, 12 (same problem) |
 
 The finished year, on 10 January 2027: 77 climbing days, 505 sends, 391 new problems, 257 flashes, compared with
-2025 +12 days, +51 sends, +6 new, +36 flashes, −52 tries. Same in the app and in the count.
+2025 +12 days, +51 sends, +6 new, +36 flashes, −52 tries, and 4,010 holds touched, 7.9 per send. Same in the app
+and in the count.
 
 One difference was in the test data, not the app: the MoonBoard import keeps one entry per problem and day, so five
 same-day duplicates in the made-up file were merged on import. The count now does the same.
@@ -74,7 +82,8 @@ back to it (fixed in build 3).
 ## The pages
 
 The finished year on 10 January, test build 5, in English and in German. Ten pages: intro, volume, boards,
-hardest per board, compared with last year, rhythm, highlights, off the wall, climber type, summary. Tap the right
+hardest per board, compared with last year, rhythm, highlights, off the wall, climber type, summary. Test build 8
+adds an eleventh, "Hold by hold", after the highlights (below). Tap the right
 side for the next page and the left side for the one before; nothing turns by itself. Holding a page hides the
 controls. Every page has a "How is this calculated?" note.
 
@@ -88,6 +97,26 @@ The card on the start screen on 10 January:
 
 A hold types page ("Your holds") comes between highlights and training when at least five sends in the year carry
 hold type tags. It did not show on the phone; see question 3.
+
+## Hold by hold
+
+The fun number of the review: every hold a sent problem marks counts once per send, repeats included. That means
+start, hand and finish holds, and foot holds on boards that mark them (the MoonBoard doesn't). Tries without a send
+don't count. The page shows the total, the average per send and the problem with the most holds, and its note says
+how many sends it was counted from, because a problem whose holds are not on the phone can't be counted. It needs at
+least ten sends with known holds. Approximate metres climbed are left out: the logbook doesn't know how high a
+problem goes on the wall.
+
+From left: 10 January, the list view on 1 December, German at the largest font size, and the shared image (problem
+name hidden by default):
+
+![Hold by hold](2026-11-06-device-test/holds-touched.png)
+
+## Turning animations off
+
+Pages fade in over about half a second. With "Remove animations" on in the system settings, they appear at once.
+Checked by recording the screen while turning a page: with animations on, the page brightened step by step over
+about 20 frames; with them off, it changed in a single frame.
 
 ## Share images
 
@@ -113,6 +142,11 @@ sends and summary:
 
 ![Largest font size](2026-11-06-device-test/largest-font.png)
 
+The "How is this calculated?" notes scroll at the largest font size since test build 9 (before, a long one was cut
+off). German volume note, at the top and scrolled to its end:
+
+![A note at the largest font size](2026-11-06-device-test/note-scroll.png)
+
 ## Little data
 
 A second logbook for 2024 with four climbing days and five sends, below the minimum (8 climbing days or 30 tries
@@ -126,8 +160,12 @@ such a year:
 With TalkBack (or another screen reader that explores by touch) switched on, the review opens as one list instead
 of pages. The list was checked through its button (below): every page is a heading, the month chart is read as text
 ("January 8, February 5, …"), and each page's share button now says which page it shares. Tap left and right, and
-"next page" and "previous page" as screen reader actions, are on the pages too. TalkBack itself has not been tried
-yet, so the real check is still open.
+"next page" and "previous page" as screen reader actions, are on the pages too.
+
+Since test build 8, a test checks this on every build: with touch exploration switched on, the review opens as the
+list; every page there starts with a heading, carries its month chart as text and has a share button named after the
+page; the pages turn with "Next page" and "Previous page" and announce "Page 3 of 11". TalkBack itself has not been
+tried yet, so the real check is still open.
 
 ![The list view](2026-11-06-device-test/list-view-en.png)
 
@@ -148,6 +186,7 @@ yet, so the real check is still open.
 | 5 | After scrolling down a long page, the next page opened part-way down: all pages shared one scroll position. | 7 |
 | 5 | In the list view, a screen reader heard "Share" ten times; each button now names its page. | 7 |
 | 5 | German: the short review of a past year said "In diesem Jahr", which reads as the current year. | 7 |
+| 8 | At the largest font size, a long "How is this calculated?" note ran past its dialog and was cut off. It now scrolls. | 9 |
 
 ## Climber types
 
@@ -158,13 +197,22 @@ The ten types, their rules and how they were calibrated are in
 
 ## Questions
 
+Each with the option the review is built on for now; all of them are quick to change.
+
 1. **Minimum amount of data:** the full review opens from 8 climbing days or 30 tries in the year. Below that, no card
    appears and the statistics show a short note instead ("Your 2024: 4 climbing days and 5 sends"). Keep these
-   numbers?
+   numbers? *Built: keep.*
 2. **Start-screen card in January:** it stays on the start screen until 31 January, with the finished year. Keep
-   it there in January, or show it only in the statistics after New Year?
+   it there in January, or show it only in the statistics after New Year? *Built: keep it until 31 January.*
 3. **Hold types page:** it counts the hold type tags of climbs logged by hand. The screen for logging such climbs is
    no longer reachable in the app, so the page will almost never show before the board problems carry hold types
    ([#63](https://github.com/CruxCoach/CruxCoach/issues/63)). Keep it (it only shows with 5 or more tagged sends in
-   the year), or take it out until #63?
-4. **Screen readers:** could you, or anyone in the room, try the list view with TalkBack switched on?
+   the year), or take it out until #63? *Built: keep.*
+4. **Screen readers:** could you, or anyone in the room, try the list view with TalkBack switched on? The test above
+   checks what TalkBack would read, but not TalkBack itself.
+5. **Hold by hold:** keep the page as it is (after the highlights, from 10 sends with known holds, not on the summary
+   image)? *Built: as described.*
+6. **More fun numbers:** the board catalogue shows a move count for many problems, so "moves climbed" could join the
+   holds. Add it now, or after 0.2.5? *Built: not added.*
+7. **Gym and location switch:** #64 lists a switch to hide your gym and location on shared images. The images never
+   contain either, so there is no such switch. Leave it like that and drop it from #64? *Built: no switch.*
