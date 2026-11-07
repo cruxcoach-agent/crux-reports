@@ -199,6 +199,9 @@ The ten types, their rules and how they were calibrated are in
 
 Each with the option the review is built on for now; all of them are quick to change.
 
+**Answered on 7 November:** 1–3, 5 and 6 as built; 4, the maintainer checks test build 9 with TalkBack; 7, no gym or
+location switch, because the share images never show either.
+
 1. **Minimum amount of data:** the full review opens from 8 climbing days or 30 tries in the year. Below that, no card
    appears and the statistics show a short note instead ("Your 2024: 4 climbing days and 5 sends"). Keep these
    numbers? *Built: keep.*
