@@ -1,6 +1,6 @@
 # Scan the board: feasibility study (Kilter and MoonBoard)
 
-Issue [#65](https://github.com/CruxCoach/CruxCoach/issues/65) · 2026-11-07 · first version
+Issue [#65](https://github.com/CruxCoach/CruxCoach/issues/65) · 2026-11-07 · second version
 
 Can a phone tell which problem is lit on a board from the camera alone, offline, whatever app lit it? This study
 measures how often it names the right problem, how often it is confidently wrong, how often it is unsure, and how
@@ -9,15 +9,15 @@ as plain Kotlin on a server and, for the timing, on a 2018 mid-range phone.
 
 ## Short answer
 
-**Go, with one condition.** On synthetic frames the recogniser names the right problem first in 94 % of free-view
-scans on Kilter 12×14 and MoonBoard 2016 (85–87 % on Kilter 16×12 and MoonBoard 2024), has it among the first three
-in 89–98 %, and was **never sure and wrong in 770 frames** (450 with problems as people climb them, 280 with any
+**Go, with one condition.** On synthetic frames the recogniser names the right problem first in 94–95 % of
+free-view scans on Kilter 12×14 and MoonBoard 2016 (85–89 % on Kilter 16×12 and MoonBoard 2024), has it among the
+first three in 89–98 %, and was **never sure and wrong in 770 frames** (450 with problems as people climb them, 280 with any
 problem, 40 mirrored). On a 2018 mid-range phone it answers in about 0.9 s per frame for popular Kilter problems
-and 0.4 s for MoonBoard 2016. The condition: real photos are clearly harder than the renders. On the only
+and 0.4–0.6 s for MoonBoard. The condition: real photos are clearly harder than the renders. On the only
 public set of real photos, the detector finds two in three hand LEDs, against nearly all in the renders, so the first
 step after a go should be a test build checked on a real board, before the rest of the UI.
 
-- **A climber in front** (a quarter to a third of the lit holds hidden): top-1 drops to 45–73 %, and the recogniser
+- **A climber in front** (a quarter to a third of the lit holds hidden): top-1 drops to 49–73 %, and the recogniser
   says "not sure" much more often. It still offers its best three, and it was never sure and wrong.
 - **"Sure" is strict on purpose:** in free view 67 % of Kilter 12×14 scans and 39 % of MoonBoard 2016 scans are sure
   on a single frame. Otherwise the app shows the best three to pick from, or keeps looking at the next frames.
@@ -47,12 +47,12 @@ Problems drawn in proportion to their logged ascents.
 | Kilter 16×12 | free view | 53 | 85 % | 89 % | 68 % | 0 |
 |  | climber | 47 | 49 % | 62 % | 17 % | 0 |
 |  | all | 100 | **68 %** | **76 %** | **44 %** | **0** |
-| MoonBoard 2016 | free view | 62 | 94 % | 97 % | 39 % | 0 |
-|  | climber | 38 | 53 % | 71 % | 0 % | 0 |
-|  | all | 100 | **78 %** | **87 %** | **24 %** | **0** |
-| MoonBoard 2024 | free view | 47 | 87 % | 89 % | 28 % | 0 |
-|  | climber | 53 | 45 % | 58 % | 0 % | 0 |
-|  | all | 100 | **65 %** | **73 %** | **13 %** | **0** |
+| MoonBoard 2016 | free view | 62 | 95 % | 97 % | 39 % | 0 |
+|  | climber | 38 | 50 % | 74 % | 0 % | 0 |
+|  | all | 100 | **78 %** | **88 %** | **24 %** | **0** |
+| MoonBoard 2024 | free view | 47 | 89 % | 91 % | 32 % | 0 |
+|  | climber | 53 | 60 % | 75 % | 0 % | 0 |
+|  | all | 100 | **74 %** | **83 %** | **15 %** | **0** |
 
 ### Any problem
 
@@ -66,12 +66,12 @@ Problems drawn uniformly from the whole catalogue, including ones nobody has cli
 | Kilter 16×12 | free view | 28 | 93 % | 93 % | 46 % | 0 |
 |  | climber | 32 | 41 % | 53 % | 22 % | 0 |
 |  | all | 60 | **65 %** | **72 %** | **33 %** | **0** |
-| MoonBoard 2016 | free view | 36 | 97 % | 97 % | 67 % | 0 |
-|  | climber | 24 | 58 % | 71 % | 0 % | 0 |
-|  | all | 60 | **82 %** | **87 %** | **40 %** | **0** |
-| MoonBoard 2024 | free view | 33 | 85 % | 91 % | 15 % | 0 |
-|  | climber | 27 | 70 % | 78 % | 0 % | 0 |
-|  | all | 60 | **78 %** | **85 %** | **8 %** | **0** |
+| MoonBoard 2016 | free view | 36 | 94 % | 94 % | 67 % | 0 |
+|  | climber | 24 | 62 % | 71 % | 0 % | 0 |
+|  | all | 60 | **82 %** | **85 %** | **40 %** | **0** |
+| MoonBoard 2024 | free view | 33 | 91 % | 94 % | 24 % | 0 |
+|  | climber | 27 | 74 % | 78 % | 0 % | 0 |
+|  | all | 60 | **83 %** | **87 %** | **13 %** | **0** |
 
 ### Mirrored problems (Kilter)
 
@@ -90,9 +90,9 @@ The same Kotlin code, run from the command line on the phone (eight Cortex-A53 c
 | Finding the lit LEDs (every frame) | 0.15–0.2 s | 0.3 s |
 | Kilter 12×14, the 20,000 most climbed problems | 0.8 s | 0.9 s |
 | Kilter 12×14, the whole catalogue (213,000 problems), when the first part is not sure | 2.6 s | 6.6 s |
-| MoonBoard 2016, read off the board | 0.17 s | 1.0 s |
-| MoonBoard 2024, read off the board | 0.5 s | 0.6 s |
-| MoonBoard 2024, catalogue search when the board cannot be located | 2.4 s | |
+| MoonBoard 2016, read off the board | 0.19 s | 1.0 s |
+| MoonBoard 2024, read off the board | 0.35 s | 0.7 s |
+| MoonBoard, catalogue search when the board cannot be located (one frame) | 2.4 s | |
 
 Kilter: 20 frames, MoonBoard: 10 frames per set, eight threads; the answers were the same as on the server. The
 catalogue search scales with the number of problems, which is why the popular part goes first. A Kilter catalogue
@@ -174,11 +174,17 @@ The synthetic frames are kinder than real photos. On the 20 real photos, the det
 | blue/cyan (hand) | 92 of 142 (65 %) |
 | orange (foot), recorded as yellow | 16 of 123 (13 %) |
 
-and 71 of its 244 blobs are not on a labelled lit hold (reflections, coloured holds, screens). The photos have no
-sensor data, are partly screenshots and crops, and show no problem names, so they cannot give a top-1 rate; in a
-first run with the prototype, only one of them got a clean answer (every lit hold explained). Feet barely matter for the answer (they
-weigh least), but a hand LED found only two times in three does, and real photos also add glare and reflections the
-renders do not have.
+and 71 of its 244 blobs are not on a labelled lit hold (reflections, coloured holds, screens, a blue door). Part of
+the gap is in the labels: many labelled foot holds show no visible light at all.
+
+The photos have no sensor data (the recogniser sweeps the camera tilt instead), are partly screenshots and crops,
+and show no problem names, so they cannot give a top-1 rate. What they can show is whether an answer is consistent
+with the photo: in 7 of the 20, the best answer covers every labelled lit start, hand and finish hold and each of
+its own start, hand and finish holds sits on one; in 10 more it covers at least 70 % of them. The recogniser was sure on 3
+photos, all among the 7 fully consistent ones. That is encouraging, but it is consistency, not proof.
+
+Feet barely matter for the answer (they weigh least), but a hand LED found only two times in three does, and real
+photos also add glare and reflections the renders do not have.
 
 This is the largest open risk. It needs real frames from a real board, with the phone's sensors, which only a test
 build can deliver.
@@ -188,7 +194,7 @@ build can deliver.
 - **A climber in front.** With a quarter to a third of the lit holds hidden, many problems share what is still
   visible. The recogniser then says "not sure" far more often and offers three; it was never sure and wrong in
   these frames. On the MoonBoard, reading the board directly, with its coloured holds showing where the climber
-  stands, raised top-1 with a climber from about 26 % to about 50 %.
+  stands, raised top-1 with a climber from about 26 % to 50–60 %.
 - **Lit rims around big holds** (Kilter) sit up to half a hole spacing off the hole or split into two arcs. Fixed by
   fitting the pose under the camera's known tilt (an affine map after rectification instead of a free perspective
   map) and by not counting the second arc as an extra LED. Before that fix, a small problem matched in a corner of
@@ -224,8 +230,8 @@ For the maintainer to set; this is my proposal for when the feature is good enou
 3. **Speed:** a sure answer within 1.5 s on a 2018 phone for popular problems; full-catalogue answers may take
    longer while the camera stays on the board.
 
-On synthetic frames, all three hold for Kilter 12×14 and MoonBoard 2016; Kilter 16×12 and MoonBoard 2024 just miss
-the second one (89 % with problems as people climb them). None of them is shown on real frames yet.
+On synthetic frames, all three hold for Kilter 12×14 and both MoonBoard sets; Kilter 16×12 just misses the second
+one (89 % with problems as people climb them). None of them is shown on real frames yet.
 
 ## Next steps
 
