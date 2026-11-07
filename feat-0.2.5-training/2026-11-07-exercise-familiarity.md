@@ -570,3 +570,6 @@ A fresh install, so a new user with no history, no coach setup and no equipment 
 
    ![Steps in the player](2026-11-07-familiarity-player-steps.png)
 8. The Training, Nutrition, Progress and Today tabs open as before.
+9. **Re-check with the build of c31de9797** (data cleared, a new user again): one antagonist slot with Y-T-W ("Neu für dich"), and the training fills up with known exercises (Superman, sit-ups). There is one new exercise, as the rule says.
+
+   ![New user after the change](2026-11-07-familiarity-new-user-fixed.png)
