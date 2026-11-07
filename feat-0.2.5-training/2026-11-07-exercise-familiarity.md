@@ -574,3 +574,9 @@ A fresh install, so a new user with no history, no coach setup and no equipment 
 9. **Re-check with the build of c31de9797** (data cleared, a new user again): one antagonist slot with Y-T-W ("Neu für dich"), and the training fills up with known exercises (Superman, sit-ups). There is one new exercise, as the rule says.
 
    ![New user after the change](2026-11-07-familiarity-new-user-fixed.png)
+10. **After the maintainer's answers and the rebase onto the release branch with #70** (build of ba2ca6960, again as a new user):
+    - Same card as in step 9.
+    - A beginner's swap list for Superman lists only Basic exercises: side plank, plank, reverse crunch and kneeling ab wheel.
+    - With a pull-up bar added, Today brings chin-ups and negative pull-ups without the "new" mark, because Negative Pull-Up is now Basic. Y-T-W is the training's one new exercise.
+
+    ![Beginner swap list](2026-11-07-familiarity-beginner-swap.png) ![With a pull-up bar](2026-11-07-familiarity-rebased-bar.png)
