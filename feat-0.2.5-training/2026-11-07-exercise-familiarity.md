@@ -580,3 +580,15 @@ A fresh install, so a new user with no history, no coach setup and no equipment 
     - With a pull-up bar added, Today brings chin-ups and negative pull-ups without the "new" mark, because Negative Pull-Up is now Basic. Y-T-W is the training's one new exercise.
 
     ![Beginner swap list](2026-11-07-familiarity-beginner-swap.png) ![With a pull-up bar](2026-11-07-familiarity-rebased-bar.png)
+11. **After the maintainer's review** (build of 45d0d9855, again as a new user):
+    - "Neu für dich · So geht's" is one text. At font size 2.0 it wraps as a whole under the exercise name.
+    - A hand swap from incline push-ups to "Liegestütz plus", which is new, then "Kenne ich nicht". The replacement is the coach's own pick again, incline push-ups.
+    - After that, a training with one logged set ends without a "from now on like this?" question.
+    - Font size restored to 1.0 afterwards.
+
+    ![Largest font](2026-11-07-familiarity-largest-font.png) ![Don't know it after a hand swap](2026-11-07-familiarity-dont-know-after-swap.png)
+    - **Also changed in this review:**
+      - "Kenne ich nicht" picks by the coach's own rules for the slot: no comeback-only exercises, one progression chain, and never above the athlete's level.
+      - The familiarity group is per kind of training, including the step kept for that kind.
+      - After a hand swap, "Kenne ich nicht" takes the swap back; it teaches nothing and asks nothing.
+      - The simulation's safety check relaxes only the contraindication from the comeback plan's open stage.
