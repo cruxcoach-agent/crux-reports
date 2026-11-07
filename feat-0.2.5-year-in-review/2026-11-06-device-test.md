@@ -18,7 +18,8 @@
   and the page actions.
 - Fourteen bugs and rough edges were found on the phone and fixed, most of them at the largest font size and in
   German. Test build 9 has all fixes.
-- Not done yet: a check with TalkBack itself (see the questions at the end).
+- There is no separate check with TalkBack: the screen-reader test on every build covers it (decided on 7 November,
+  see question 4).
 
 ## The test data
 
@@ -164,8 +165,9 @@ of pages. The list was checked through its button (below): every page is a headi
 
 Since test build 8, a test checks this on every build: with touch exploration switched on, the review opens as the
 list; every page there starts with a heading, carries its month chart as text and has a share button named after the
-page; the pages turn with "Next page" and "Previous page" and announce "Page 3 of 11". TalkBack itself has not been
-tried yet, so the real check is still open.
+page; the pages turn with "Next page" and "Previous page" and announce "Page 3 of 11". The maintainer decided on
+7 November that this test covers screen readers, so there is no separate check with TalkBack itself. The list view
+and its button stay as built.
 
 ![The list view](2026-11-06-device-test/list-view-en.png)
 
@@ -199,8 +201,9 @@ The ten types, their rules and how they were calibrated are in
 
 Each with the option the review is built on for now; all of them are quick to change.
 
-**Answered on 7 November:** 1–3, 5 and 6 as built; 4, the maintainer checks test build 9 with TalkBack; 7, no gym or
-location switch, because the share images never show either.
+**Answered on 7 November:** 1–3, 5 and 6 as built; 4, no separate check with TalkBack, because the screen-reader
+test on every build covers it, and the list view and its button stay as built; 7, no gym or location switch, because
+the share images never show either.
 
 1. **Minimum amount of data:** the full review opens from 8 climbing days or 30 tries in the year. Below that, no card
    appears and the statistics show a short note instead ("Your 2024: 4 climbing days and 5 sends"). Keep these
@@ -212,7 +215,8 @@ location switch, because the share images never show either.
    ([#63](https://github.com/CruxCoach/CruxCoach/issues/63)). Keep it (it only shows with 5 or more tagged sends in
    the year), or take it out until #63? *Built: keep.*
 4. **Screen readers:** could you, or anyone in the room, try the list view with TalkBack switched on? The test above
-   checks what TalkBack would read, but not TalkBack itself.
+   checks what TalkBack would read, but not TalkBack itself. *Answer: no separate TalkBack check; the screen-reader
+   test on every build covers it. The list view and its button stay as built.*
 5. **Hold by hold:** keep the page as it is (after the highlights, from 10 sends with known holds, not on the summary
    image)? *Built: as described.*
 6. **More fun numbers:** the board catalogue shows a move count for many problems, so "moves climbed" could join the
