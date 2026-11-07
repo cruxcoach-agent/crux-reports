@@ -140,7 +140,7 @@ Both are on a card in the logbook statistics now (PR #69, commit fb19677d, on to
 - Tap a type for its numbers: the board's share, your send rate where it dominates, and your hardest send there.
 
 **Every typed hold counts for now.** The first-pass confidences are lower for the types that are harder to see in a
-picture. On Kilter, every sloper (77) and all but two of the 51 pinches are below medium, while edges and jugs are
+picture. On Kilter, 77 of the 78 slopers and 48 of the 51 pinches are below medium, while edges and jugs are
 mostly at medium. With a medium threshold, Kilter problems would consist of edges and jugs only. Without it, the hand
 holds of the Kilter Original problems in the catalogue come out at 45 % jugs, 47 % edges, 6 % slopers and 2 % pinches,
 which looks heavy on jugs. The blind rounds will show how far each type can be trusted, and the confidences will then
