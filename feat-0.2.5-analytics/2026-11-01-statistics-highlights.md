@@ -36,7 +36,7 @@ Checked against the 0.2.4 code. Nothing is gone; some numbers moved into another
 
 ## Review round (7 November)
 
-The maintainer reviewed the pull request and asked for nine fixes before it is ready. All of them are in commit cba69441; the two small fixes the phone check found are in commit 6fcfcfd3.
+The maintainer reviewed the pull request and asked for nine fixes before it is ready. All of them are in commit cba69441; the two small fixes the phone check found are in commit 602c1255.
 
 1. **Session recap at the end of a timed session:** flashes now count tries from earlier days, as the recap in the logbook does. A first-go send of a problem you tried before is no flash on the card you share.
 2. **Climbing days per week:** the chart spans the whole period, from your first entry at the earliest until today. A month only partly inside the period, like the current month, counts only its days inside it. The average is taken over the whole period, not from the first to the last active week.
@@ -68,7 +68,7 @@ Test build 9 (commit cba69441) with a made-up logbook of three years: 3,038 entr
 - **30 days:** the statistics' 30 days now show the same numbers as the overview's last 30 days. Tapping "1 year" and then right away "30 days" ends on 30 days.
 - **Tries per month** opens at the newest month, scrolls back to the break, which shows as a dashed line, and a tap selects a month again after a period change.
 - **Largest font size:** the overview, the six numbers and the bests keep whole words.
-- Found here and fixed in commit 6fcfcfd3: the angle count wrapped onto two lines at the largest font size, and a progress line ending at the very top had its grade cut off.
+- Found here and fixed in commit 602c1255: the angle count wrapped onto two lines at the largest font size, and a progress line ending at the very top had its grade cut off.
 - Not new, but worth knowing: with 3,038 entries the overview appears about 7 seconds after the logbook opens; the list shows after about one. Computing all the statistics takes about 100 ms on the server, so the time goes into reading the logbook, the same way 0.2.4 filled its tiles.
 
 ### The release-gate flow
