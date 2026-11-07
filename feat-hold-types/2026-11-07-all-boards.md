@@ -68,15 +68,31 @@ files are 3 to 16 KB compressed each, 65 KB together. No database change.
 
 ## Review in test builds
 
-- **Hold-type review** (from build 1 of #69): blind first, then only the disagreements. From build 3 it has a
+- **Hold-type review** (from build 1 of #69): blind first, then only the disagreements. From build 2 it has a
   reference set per board: Kilter 153 holds, MoonBoard 40, Tension 40, Grasshopper 20 and Decoy 20, drawn by layout
   and type. On mirrored boards about a fifth are mirror copies, so the mirror rule gets measured too. Each board keeps
   its own rounds and results.
-- **Check hold labels** (new, from build 3): any board with labels, holds on the review list first and the least sure
+- **Check hold labels** (new, from build 2): any board with labels, holds on the review list first and the least sure
   of them first. The proposed label is shown, and three buttons record "looks right", "correct it" (type, direction,
-  foot only) or "can't tell". The results stay in a file on the phone until they are saved or shared, like the review.
+  foot only) or "can't tell". Mirror copies say so. Reference holds are left out, so the blind rounds stay blind. The
+  results stay in a file on the phone until they are saved or shared, like the review.
 
 Both are in Settings → About, in test builds only.
+
+**Device test** (test builds 2 and 3, a 2018 Android phone, German UI):
+- The blind round, the reveal, the decide round and the results all worked, with close-ups and board views on Kilter,
+  MoonBoard, Tension and Decoy.
+- Answers were kept across an app restart.
+- With 153 made-up answers loaded, the agreement numbers matched a separate count of the saved file.
+- The label check recorded and counted all three answers.
+- Fixed after build 2:
+  - the next hold opened scrolled down, with its picture out of view;
+  - So iLL was listed with nothing to check;
+  - holds are now named by MoonBoard generation and grid position;
+  - mirror copies are marked.
+- Two problems found in a code review, fixed in build 3: the label check could show reference labels, and switching
+  boards while a hold was loading could save an answer to the wrong board.
+- Build 3 was checked on the phone again.
 
 ## Accuracy
 
