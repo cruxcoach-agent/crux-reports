@@ -59,7 +59,7 @@ Direction is the weakest field everywhere: from straight in front, which side ca
 **Consistency between boards.** Kilter was labelled with rules first and then checked by eye. The other boards were
 labelled by eye only. The type shares differ a lot: 35 % jugs on Kilter, 4 % on MoonBoard. Part of that is real,
 since the MoonBoard is a crimpy board, but part may come from the method. Comparing boards in the stats needs a
-measured accuracy per board, not just for Kilter (see question 3).
+measured accuracy per board, not just for Kilter. That is why the other boards have reference sets too.
 
 ## Delivery
 
@@ -68,9 +68,11 @@ files are 3 to 16 KB compressed each, 65 KB together. No database change.
 
 ## Review in test builds
 
-- **Hold-type review** (from build 1 of #69): the Kilter reference set of 153 holds, blind first, then only the
-  disagreements.
-- **Check hold labels** (new, from build 2): any board with labels, holds on the review list first and the least sure
+- **Hold-type review** (from build 1 of #69): blind first, then only the disagreements. From build 3 it has a
+  reference set per board: Kilter 153 holds, MoonBoard 40, Tension 40, Grasshopper 20 and Decoy 20, drawn by layout
+  and type. On mirrored boards about a fifth are mirror copies, so the mirror rule gets measured too. Each board keeps
+  its own rounds and results.
+- **Check hold labels** (new, from build 3): any board with labels, holds on the review list first and the least sure
   of them first. The proposed label is shown, and three buttons record "looks right", "correct it" (type, direction,
   foot only) or "can't tell". The results stay in a file on the phone until they are saved or shared, like the review.
 
@@ -78,7 +80,7 @@ Both are in Settings → About, in test builds only.
 
 ## Accuracy
 
-Not measured yet. It follows from the blind round on Kilter. The rule from decision 2 (edge size out of a board's
+Not measured yet. It follows from the blind rounds, Kilter first. The rule from decision 2 (edge size out of a board's
 stats below about 70 % agreement) has nothing to drop yet, because no board has edge sizes.
 
 ## The first stats: options to choose from
@@ -107,7 +109,7 @@ Recommendation: 1 and 2 first, on top of the rebuilt logbook stats; 3 when direc
 ## Open
 
 - The labels of Touchstone, Shiny Wall and most of So iLL need better pictures than the app has.
-- Accuracy per board (question 3).
+- Accuracy per board, from the blind rounds.
 - Three MoonBoard Masters 2019 cells where the hold in the picture does not have the colour of the set the app's
   hold-set map gives it (J2 and E3 listed as Hold Set B, E2 as Original School). This may be a hold-set map error;
   it is worth a separate check.
