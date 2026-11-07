@@ -47,7 +47,7 @@ The real photo shows a bouldering gym, not a spray wall: teal panels, volumes an
 - **Default sensitivity:** 28 suggestions. Most are real holds in warm colours (red, orange, yellow, pink). About 6 to 8 sit on the climber (shirt, skin, shoes). Blue, purple and grey holds are missed, and so is the large yellow hold on the left.
 - **Highest sensitivity:** 72 suggestions. It finds more holds but adds large circles on shadows and volumes.
 
-<img src="2026-11-01-device-test-build-4-suggestions-gym-photo.jpg" width="270" alt="Hold suggestions on a real gym photo at the default sensitivity">
+*The screenshot that was here is removed (2026-11-07): it showed a person.*
 
 The weak spots are hold colours close to the panel colour (blue on teal) and people in the photo. Tuning needs real spray-wall photos. If you have a spray wall, photos you are happy to share publicly help.
 

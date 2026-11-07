@@ -4,8 +4,6 @@ Draft pull request [#49](https://github.com/CruxCoach/CruxCoach/pull/49) (on top
 
 **Result:** on 28 labelled photos (1,940 holds) the tuned setting finds 93 % of the holds with 97 % precision. That saves 91 % of the hand corrections, against 13 % for the current detector. On a 2018 mid-range phone it takes about 25 s per photo and up to about 450 MB of memory.
 
-<img src="2026-11-02-hold-model-app.jpg" width="320" alt="The hold editor on the phone with every accepted hold drawn in its shape">
-
 ## The model
 
 - **Model:** BoardSesh's published hold segmentation model `2026-09-18-seg` (RF-DETR-Seg nano, int8 ONNX, 32.5 MB, Apache-2.0). The app downloads it once when the climber asks for it, and checks its size and SHA-256 against the published manifest.
@@ -16,7 +14,7 @@ Draft pull request [#49](https://github.com/CruxCoach/CruxCoach/pull/49) (on top
 
 ## How it was measured
 
-- **Photos:** 28 photos of climbing walls, from 567 to 4,608 px on the long side. They include home spray walls (plywood, painted, black and grey panels), gym walls with volumes, close-ups and whole walls, climbers in front of the wall, a night photo and a textured wall. 22 of them are web photos used for testing only, so they are not shown here. The 6 shown are from Wikimedia Commons (CC0, CC BY, CC BY-SA).
+- **Photos:** 28 photos of climbing walls, from 567 to 4,608 px on the long side. They include home spray walls (plywood, painted, black and grey panels), gym walls with volumes, close-ups and whole walls, climbers in front of the wall, a night photo and a textured wall. 22 of them are web photos used for testing only; the other 6 are from Wikimedia Commons (CC0, CC BY, CC BY-SA). None are shown here.
 - **Labels:** for each photo, a region with about 100 holds. I labelled the holds myself, starting from the suggestions of the model and of the current detector at low thresholds. I checked each one, removed wrong ones, added missed ones by hand, and marked unsure ones. That gives 1,940 sure holds; unsure holds count neither way. Because the labels start from suggestions, the numbers flatter the model somewhat. A hold that neither detector suggested and that I also missed is not counted.
 - **Matching:** a suggestion counts for a hold when one centre lies inside the other's circle. Duplicates count as wrong.
 - **Gesture savings:** 1 − (2 × missed + wrong) ÷ (2 × holds). Adding a missed hold by hand takes two gestures and deleting a wrong one takes one, so 100 % means nothing left to correct.
@@ -84,23 +82,15 @@ The phone has 8 slow cores. With 4 threads the model seemed to run on the slower
 - **Textured walls:** on a moulded, rock-like gym wall the model sometimes suggests a relief feature as a hold.
 - **People:** with a climber in front of the wall, a few suggestions land on hands and shoes, though far fewer than with the current detector.
 
-Holds that a tile border cuts take their shape from the neighbouring tile that sees them whole. A hold too big for any tile to see whole is put together from its pieces. The holds found stay the same; the straight edges go away:
+Holds that a tile border cuts take their shape from the neighbouring tile that sees them whole. A hold too big for any tile to see whole is put together from its pieces. The holds found stay the same; the straight edges go away.
 
-<img src="2026-11-02-hold-model-seams.jpg" width="640" alt="Left: big holds with straight edges at tile borders. Right: the same holds in their whole shape">
-
-<img src="2026-11-02-hold-model-gym.jpg" width="640" alt="A gym wall with every hold the model found outlined">
-
-<img src="2026-11-02-hold-model-spraywall.jpg" width="320" alt="A spray wall with every hold the model found outlined">
+*The pictures that were here are removed (2026-11-07): they showed people.*
 
 ## What changed in the app (#49)
 
 - The hold editor offers the model download (33 MB) once. After that, hold finding runs without internet, shows its progress, and suggests holds with their outlines.
 - Holds keep their shape: it is stored with the hold, published with the wall version, and drawn filled in the role colour in problems. A hold without a shape is drawn as a circle.
 - Defaults: 3×3 tiles at 1536 px, duplicates at 0.3, threshold 0.5, all cores up to 8, native bitmap scaling. Holds cut by a tile border take their uncut shape or are joined from their pieces.
+  **Update 2026-11-07:** after the review the app ships the faster 2×2 setting at 1024 px (about 12 s per photo); see the [review check](2026-11-07-review-check.md).
 
 Not decided yet: whether the model is downloaded on demand or bundled, and whether this goes into 0.2.5 or 0.2.6.
-
-## Photo credits
-
-- App screenshot, spray wall photo and the tile-border comparison: "Spray wall.png" by Jacob Blight, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spray_wall.png). Hold outlines added by the app.
-- Gym photo: "Climbing wall 20211103 145408.jpg" by Ka23 13, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Climbing_wall_20211103_145408.jpg). Hold outlines added; this image is shared under CC BY-SA 4.0.
