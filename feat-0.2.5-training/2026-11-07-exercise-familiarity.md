@@ -1,6 +1,8 @@
 # Well-known exercises first: proposal (issue #68)
 
-Step A of [#68](https://github.com/CruxCoach/CruxCoach/issues/68): what the levels are, how every catalogue exercise is classified, how the coach chooses with them, the preference, what the card shows, and how the simulation checks it. No code yet. **The questions for the maintainer are at the end (numbered, each with a recommendation).**
+Step A of [#68](https://github.com/CruxCoach/CruxCoach/issues/68): what the levels are, how every catalogue exercise is classified, how the coach chooses with them, the preference, what the card shows, and how the simulation checks it. **The questions for the maintainer are in section 7 (numbered, each with a recommendation).**
+
+**Update 2026-11-07:** built in draft pull request [#71](https://github.com/CruxCoach/CruxCoach/pull/71), with the recommended answer to every question. [Section 10](#10-built-step-b) covers what changed while building it, the simulation, five new questions and the phone check.
 
 ## 1. Three levels of familiarity
 
@@ -475,3 +477,96 @@ The checks read the catalogue's levels and what the athlete logged, not the coac
 | Silent Feet (Leise Füße) | Common | common footwork drill |
 | Sticky Feet (Präzise Fußtritte) | Common | common footwork drill |
 | Hover Hands (Schwebende Hände) | Special | a drill that needs explaining |
+
+## 10. Built (step B)
+
+Draft pull request [#71](https://github.com/CruxCoach/CruxCoach/pull/71). It is built on the recommended answer to each question in section 7. Every number and group sits in one place in the code (`ExerciseFamiliarity`), so a different answer is a small change. Building it raised five more points; they are questions 13–17 below.
+
+### What the app does now
+
+- **Catalogue:** every exercise has its level from section 9 (75 Basic, 104 Common, 35 Special).
+- **Who gets what:** as in section 3.
+  - "Beginner" without a coach setup means: no experience answer and no grade from 6c. The experience question can also be answered under "Basics", without the setup.
+  - A known exercise is always allowed and never counts as new.
+- **At most one new exercise per training,** two with "Open to unusual exercises".
+  - Once a training has its new exercise and only new ones are left near your level, a Basic or known exercise one difficulty step easier comes first (question 16).
+  - If there is none either, a repeated slot of the same kind is left out, for example the second antagonist slot (question 17). A longer training fills up with known work instead.
+  - The first slot of each kind is always filled, marked "new to you" if it has to be.
+- **Known** means:
+  - logged in two trainings, a favourite, a kept choice, or your own exercise;
+  - or a performance value you entered, tested or estimated. A value the coach learned from a single training does not count (question 15).
+- **Scoring:**
+  - The bonus for exercises you have not done yet counts only within your levels.
+  - "Open to unusual exercises" adds a small bonus for Special exercises.
+  - The general bonus for `beginner_friendly` is gone.
+- **Exercise choice / Übungsauswahl:**
+  - In the coach setup (card 4) it comes after the favourites, which stay right below "Routine or variety" (question 13).
+  - In the training settings it is three chips under "Plan" (question 14).
+  - Choosing one shows a line in the setup's preview.
+- **Today:**
+  - A new exercise shows "New to you · How it works" under its name. The link opens the exercise page with its steps; a tap on the exercise itself still opens the swap sheet.
+  - The swap sheet of a new exercise starts with "Don't know it: X instead", where X is the best Basic or known exercise for the slot. When there is none, the sheet says so. Either way, "How it works" is right there.
+  - "Don't know it" holds for the day, also after a restart, and can be undone from the snackbar. It is no dislike, and the exercise is not the coach's new pick for 14 days.
+- **Player:** the first time an exercise that is not Basic comes up, its steps are open at the top of its page and can be folded. Nothing changes for other exercises.
+
+### Simulation
+
+The full run covers 16 personas. Three are new:
+- `open-home`: an intermediate athlete at home who chose "Open to unusual exercises".
+- `home-classics`: `home-hangboard` with "Mostly classics".
+- `new-no-setup`: a new user who answers none of the coach setup.
+
+In the first two weeks every persona taps "Don't know it" on each Special exercise new to them.
+
+| Check | Flags |
+|---|---|
+| Beginners, weeks 1–4: no Special exercise they do not know | 0 |
+| Beginners, weeks 1–4: at least 70 % of the main exercises Basic or known; "Mostly classics": 80 % outside finger work | 0 |
+| At most one new exercise per training (two with "Open"), where something known would have fitted | 0 |
+| Advanced: at least 30 % Common or Special | 0 |
+| "Open": a Special exercise in at least half of all two-week stretches | 0 |
+| "Mostly classics": no Special exercise the athlete does not know | 0 |
+| "Don't know it": something known in at least 95 % of the taps, no change to the learned preference, not back within 14 days | 0 |
+| Info: a second new exercise because nothing known fitted | 1 training (after "too easy"). Before the change from question 17 it was 12, mostly with little equipment. |
+
+Safety stays at 0. Two other numbers moved with the new picks: values far from the truth went from 5 to 7, and weekly-volume flags from 34 to 52 (9 of them from the new persona). Both are traced in the #59 follow-up.
+
+The new checks found two problems in the first run, both fixed in the pull request:
+1. A value the coach learned from one training made an exercise count as known, so a second new exercise came in.
+2. In a slot with a level floor, the floor and the one-chain rule could leave only new exercises, even though a known one a step easier would have fitted.
+
+They also showed that the safety check for contraindicated exercises was stricter than the comeback plan. From stage 5 on, the plan allows training outside its sessions to load the finger again. The check now follows that.
+
+### Questions 13–17 (new)
+
+13. **"Exercise choice" in the setup after the favourites.** The favourites stay right below "Routine or variety", as decided on 2026-10-16. **Recommendation: yes.**
+14. **In the training settings as three chips under "Plan"**, not a row that opens a dialog. **Recommendation: yes.** One tap, and the help line stays visible.
+15. **A performance value the coach learned from a single training does not make an exercise known.** Entered, tested and estimated values do. **Recommendation: yes.** Otherwise one training would be enough for loaded exercises.
+16. **When a training already has its new exercise, a Basic or known exercise one step easier comes before a second new one.** **Recommendation: yes.** The alternative is two new exercises at the athlete's level.
+
+17. **A repeated slot of the same kind is left out rather than bringing a second new exercise.** The phone check found this case: a new user without equipment got Y-T-W and scapular push-ups in the two antagonist slots, both new. **Recommendation: yes.** The first antagonist stays, and the training fills up with known work. The alternative is to fill both slots and mark both.
+
+### Phone check (test build of ae685abf4)
+
+A fresh install, so a new user with no history, no coach setup and no equipment set up. The app was in German.
+
+1. **Today:** the table row and incline push-ups (Basic), then Y-T-W and scapular push-ups, both marked "Neu für dich · So geht's". Without equipment the antagonist slots have no Basic exercise (section 2). This build still filled both slots, which led to question 17; the change is in the pull request.
+
+   ![New user](2026-11-07-familiarity-new-user.png)
+2. **"So geht's"** opens the exercise page with the steps.
+3. **The swap sheet of Y-T-W:** nothing known fits, so it says so and offers "So geht's".
+
+   ![Nothing known fits](2026-11-07-familiarity-nothing-known.png)
+4. **Settings, "Ziel und Woche":** the "Übungsauswahl" chips under "Plan", with "Gern auch Ausgefallenes" chosen.
+
+   ![Exercise choice in the settings](2026-11-07-familiarity-settings.png)
+5. **Today with "Open":** Special exercises come in too, such as the lower-trap raise against the wall.
+
+   ![Open to unusual exercises](2026-11-07-familiarity-open.png)
+6. **"Kenne ich nicht: stattdessen Diamant-Liegestütze"** on "Liegestütz plus". The card swaps it, still with six exercises, and the snackbar offers undo. After a force-stop and restart the swap is still there.
+
+   ![Don't know it](2026-11-07-familiarity-dont-know.png) ![After the swap](2026-11-07-familiarity-swapped.png)
+7. **Player:** on the lower-trap raise, done for the first time, the steps are open and can be folded. Basic exercises have no steps block.
+
+   ![Steps in the player](2026-11-07-familiarity-player-steps.png)
+8. The Training, Nutrition, Progress and Today tabs open as before.
