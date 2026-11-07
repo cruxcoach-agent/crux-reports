@@ -33,7 +33,8 @@ Shiny Wall's placements overlap between its five wall sizes, so it has fewer phy
 - **Matching:** every placement was matched to its picture, 567 pictures in all, so a label reaches every wall size
   the hold is on.
 - **Confidence:** the pictures are flat renders with soft shading. Of the 2,042 labels, 524 have medium type
-  confidence and the rest low. Only the medium ones count in the stats.
+  confidence and the rest low. (Until the blind rounds calibrate the confidences, every typed hold counts in the
+  stats; see "The first stats".)
 
 ## How the labels were made
 
@@ -112,8 +113,7 @@ stats below about 70 % agreement) has nothing to drop yet, because no board has 
 
 ## The first stats: options to choose from
 
-All of them count hand holds only (start, middle, finish; no foot-only holds), use labels of at least medium
-confidence, and say how many holds they rest on. Manual hold tags on a log stay next to the computed labels
+All of them count hand holds only (start, middle, finish; no foot-only holds) and say how many holds they rest on. Manual hold tags on a log stay next to the computed labels
 (decision 6).
 
 1. **Your hold mix.** The share of each type among the hand holds of your sends, per board and across boards, next to
@@ -127,13 +127,28 @@ confidence, and say how many holds they rest on. Manual hold tags on a log stay 
 
 Decided: 1 and 2 first. Whether 4 comes is decided after the Kilter blind round.
 
-Both are computed now, as functions with tests:
-- In the mix, every problem counts equally.
+Both are on a card in the logbook statistics now (PR #69, commit fb19677d, on top of #48):
+- In the mix, every problem counts equally. A problem is a climb across angles, as in the other stats.
 - A type dominates a problem when it makes up at least 40 % of the problem's counted hand holds.
 - A strong or weak verdict needs at least five such problems, and a send rate at least 15 points above or below your
   rate on the board.
+- The mark for the board is the share on the board's problems in your grade range (one step wider) on the layouts you
+  climb, weighted by your problems per layout. So the comparison is about which holds you choose, not how hard you
+  climb.
+- One board at a time: the board picked at the top of the statistics, or else the board you logged the most problems
+  on. Boards are compared only once each board's blind round is done.
+- Tap a type for its numbers: the board's share, your send rate where it dominates, and your hardest send there.
 
-The screens follow on top of the rebuilt logbook stats (#48) once that is merged.
+**Every typed hold counts for now.** The first-pass confidences are lower for the types that are harder to see in a
+picture. On Kilter, every sloper (77) and all but two of the 51 pinches are below medium, while edges and jugs are
+mostly at medium. With a medium threshold, Kilter problems would consist of edges and jugs only. Without it, the hand
+holds of the Kilter Original problems in the catalogue come out at 45 % jugs, 47 % edges, 6 % slopers and 2 % pinches,
+which looks heavy on jugs. The blind rounds will show how far each type can be trusted, and the confidences will then
+be calibrated per type.
+
+The card with made-up numbers (German, dark; English at 320 dp with the largest font, light):
+
+<img src="img/2026-11-07-stats-card-de-dark.png" width="360"> <img src="img/2026-11-07-stats-card-en-320-large-font.png" width="280">
 
 ## Ideas for the send probability (not part of this work)
 
