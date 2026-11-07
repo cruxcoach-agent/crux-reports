@@ -2,7 +2,7 @@
 
 Step A of [#68](https://github.com/CruxCoach/CruxCoach/issues/68): what the levels are, how every catalogue exercise is classified, how the coach chooses with them, the preference, what the card shows, and how the simulation checks it. **The questions for the maintainer are in section 7 (numbered, each with a recommendation).**
 
-**Update 2026-11-07:** built in draft pull request [#71](https://github.com/CruxCoach/CruxCoach/pull/71), with the recommended answer to every question. [Section 10](#10-built-step-b) covers what changed while building it, the simulation, five new questions and the phone check.
+**Update 2026-11-07:** built in pull request [#71](https://github.com/CruxCoach/CruxCoach/pull/71), with the recommended answer to every question. **The maintainer's answers (2026-11-07):** questions 1–11 and 13–19 as recommended; for 12 the levels stand, except that Negative Pull-Up is Basic, as the usual first step to a pull-up. [Section 10](#10-built-step-b) covers what changed while building it, the simulation, five new questions and the phone check.
 
 ## 1. Three levels of familiarity
 
@@ -23,12 +23,12 @@ The brief's starting names were "Basis / Klettertraining / Speziell". The middle
 
 ## 2. All 214 exercises
 
-Result: **75 Basic, 104 Common, 35 Special**. Every exercise has a short reason (tables per category below).
+Result: **76 Basic, 103 Common, 35 Special** (after the maintainer's change: Negative Pull-Up is Basic). Every exercise has a short reason (tables per category below).
 
 | Category | Basic | Common | Special |
 |---|---|---|---|
 | Finger | 0 | 19 | 5 |
-| Pull | 12 | 13 | 2 |
+| Pull | 13 | 12 | 2 |
 | Push | 9 | 5 | 3 |
 | Antagonists and prehab | 4 | 11 | 8 |
 | Core | 12 | 9 | 6 |
@@ -38,13 +38,13 @@ Result: **75 Basic, 104 Common, 35 Special**. Every exercise has a short reason 
 | Power | 3 | 4 | 1 |
 | Endurance | 1 | 5 | 0 |
 | Technique | 2 | 5 | 1 |
-| **All** | **75** | **104** | **35** |
+| **All** | **76** | **103** | **35** |
 
 **What the data says about beginners' sessions.** For each slot I counted the Basic exercises a beginner can get (difficulty 2 or less, the equipment of the set-up):
 
 | Slot | No equipment set up | Home (bar, dumbbells, bands, hangboard) | Gym |
 |---|---|---|---|
-| Pull | 1 Basic, 0 Common | 6 Basic, 3 Common | 10 Basic, 4 Common |
+| Pull | 1 Basic, 0 Common | 7 Basic, 2 Common | 11 Basic, 3 Common |
 | Push | 3 Basic, 1 Common | 4 Basic, 1 Common | 9 Basic, 1 Common |
 | Core | 5 Basic, 5 Common | 7 Basic, 5 Common | 9 Basic, 5 Common |
 | Legs | 11 Basic, 1 Common | 11 Basic, 4 Common | 12 Basic, 6 Common |
@@ -199,7 +199,7 @@ The checks read the catalogue's levels and what the athlete logged, not the coac
 | Dynos & Deadpoints (Dynos & Deadpoints) | Basic | Common | every climber knows dynos |
 | Inverted Row (Körpergewichtsrudern) | Common | Basic | known as the Australian pull-up; set-up needs a look |
 | Lock-Off Hold (Blockieren an der Stange) | Common | Basic | climbers know lock-offs |
-| Negative Pull-Up (Negative Klimmzüge) | Common | Basic | 'negative' needs knowing |
+| Negative Pull-Up (Negative Klimmzüge) | **Basic** (maintainer) | Common | the usual first step to a pull-up; as Common a beginner would only get it as the session's one new exercise |
 | Table Row (Rudern unter dem Tisch) | Basic | Common | the name says it; the only pull exercise without a bar |
 | Diamond Push-Up (Diamant-Liegestütze) | Basic | Common | a known push-up variant |
 | Push-Up Plus (Liegestütz plus) | Special | Common | the 'plus' needs explaining |
@@ -261,7 +261,7 @@ The checks read the catalogue's levels and what the athlete logged, not the coac
 | Front Lever Raise (Frontlever-Heben) | Common | front lever progression |
 | Inverted Row (Körpergewichtsrudern) | Common * | known as the Australian pull-up; set-up needs a look |
 | Lock-Off Hold (Blockieren an der Stange) | Common * | climbers know lock-offs |
-| Negative Pull-Up (Negative Klimmzüge) | Common * | 'negative' needs knowing |
+| Negative Pull-Up (Negative Klimmzüge) | Basic * | the usual first step to a pull-up (maintainer, 2026-11-07) |
 | One-Arm Lock-Off (Einarmiges Blockieren) | Common | climbers know lock-offs |
 | One-Arm Negative (Einarmige Negative) | Common | known among climbers who train |
 | Scapular Pull-Up (Schulterblatt-Klimmzüge) | Common | known from climbing warm-ups |
@@ -484,7 +484,7 @@ Draft pull request [#71](https://github.com/CruxCoach/CruxCoach/pull/71). It is 
 
 ### What the app does now
 
-- **Catalogue:** every exercise has its level from section 9 (75 Basic, 104 Common, 35 Special).
+- **Catalogue:** every exercise has its level from section 9 (76 Basic, 103 Common, 35 Special).
 - **Who gets what:** as in section 3.
   - "Beginner" without a coach setup means: no experience answer and no grade from 6c. The experience question can also be answered under "Basics", without the setup.
   - A known exercise is always allowed and never counts as new.
@@ -507,6 +507,7 @@ Draft pull request [#71](https://github.com/CruxCoach/CruxCoach/pull/71). It is 
   - A new exercise shows "New to you · How it works" under its name. The link opens the exercise page with its steps; a tap on the exercise itself still opens the swap sheet.
   - The swap sheet of a new exercise starts with "Don't know it: X instead", where X is the best Basic or known exercise for the slot. When there is none, the sheet says so. Either way, "How it works" is right there.
   - "Don't know it" holds for the day, also after a restart, and can be undone from the snackbar. It is no dislike, and the exercise is not the coach's new pick for 14 days.
+- **Swap list (question 18):** for a beginner, Basic and known alternatives come first, otherwise in the same order; exercises turned down lately stay last.
 - **Player:** the first time an exercise that is not Basic comes up, its steps are open at the top of its page and can be folded. Nothing changes for other exercises.
 
 ### Simulation
