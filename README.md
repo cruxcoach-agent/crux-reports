@@ -51,3 +51,6 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 
 ### feat-0.2.5-done-led-effects
 - [LED effects, UI pass](feat-0.2.5-done-led-effects/2026-11-07-ui-pass.md) (2026-11-08): the LED effects card, the flashing-light notice, the info and the quick pick, rendered in English and German at 320 and 411 dp, with normal and largest font, in dark and light. Includes three design reviews, the findings and fixes in PR #81, before-and-after renders, and the phone check.
+
+### dev
+- [Board size check, UI pass](dev/2026-11-08-board-size-check-ui-pass.md) (2026-11-08): the size check sheet and the board picker link (#55 into #53) in every state, EN/DE, 320/411 dp, largest font, dark and light; before and after, a phone check without a board, the decisions.
