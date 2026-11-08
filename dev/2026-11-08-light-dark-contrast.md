@@ -2,7 +2,7 @@
 
 **Goal:** every text reaches at least 4.5:1 and large text and controls at least 3:1, in the light and the dark theme, and the app keeps its orange look. The theme's colour tokens change first; screens change only where they hard-code colours.
 
-**State, 8 November:** the code is in draft PR [#92](https://github.com/CruxCoach/CruxCoach/pull/92) and the renders below are from it. The test build and the phone check follow once the release branch's CI is green again.
+**State, 8 November:** the code is in draft PR [#92](https://github.com/CruxCoach/CruxCoach/pull/92). Its CI is green, and test build 1 (`6aba0609`) was checked on a phone in light and dark.
 
 ## What was wrong
 - **Lilac surfaces.** The colour schemes set only a few Material roles, so Material filled the rest with its lilac defaults. In the light theme this showed on the drawer, cards, the day row, the setup card and the navigation bar. In the dark theme it showed on the top bar and the drawer.
@@ -48,6 +48,23 @@ The same screens and the logbook statistics, dark:
 
 ![Training dark after](2026-11-08-light-dark-contrast/after-training-dark.png)
 
+## After (test build 1 on the phone; light left, dark right)
+Appearance settings:
+
+![Appearance after](2026-11-08-light-dark-contrast/after-05-appearance.png)
+
+Main menu:
+
+![Drawer after](2026-11-08-light-dark-contrast/after-02-drawer.png)
+
+Training, today:
+
+![Training after](2026-11-08-light-dark-contrast/after-09-training-today.png)
+
+The phone check also covered the following, in both themes, with no crash:
+- the board list, where star ratings now read in dark yellow on light
+- the climb page with the deep orange "Connect" button and white label
+- the logbook, the settings list, onboarding and the tour spotlight
+
 ## Next
-1. The test build, then a phone check in light and dark: home, climb, logbook, settings, map and training.
-2. A rebase onto the release branch once the open UI-pass PRs (#81–#84) are merged.
+- A rebase onto the release branch once the open UI-pass PRs (#81–#84) are merged, then one more check of their screens.
