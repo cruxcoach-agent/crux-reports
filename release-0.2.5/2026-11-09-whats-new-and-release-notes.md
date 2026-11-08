@@ -51,13 +51,13 @@ Seven short lines and an "Also" line. Order: what most people will use first. Pl
 - `whatsnew_025_body` (EN, DE): the seven lines, with `&#160;` before each dash like the community line.
 - a new `whatsnew_025_hint` (EN, DE) and its `Text` in `Release025WhatsNewDialog`, styled like the 0.2.4 hint.
 - `CommunityJoinTest`: the community line check matches a substring, since the body has more lines.
-- `RELEASE_NOTES.md`: the text in section 2.
+- `RELEASE_NOTES.md`: the text in section 2, with "Unreleased" in the heading until the release preparation puts the date there (the release workflow refuses a heading that still says "Unreleased").
 - `CHANGELOG.md`: a line for the Kilter Homewall 10x12 image (#75 has none), and "Settings → Board accounts & imports" in the Shiny Wall account entry (it says "Settings → Imports"). Contrast (#92) and PaintBox (#90, its entry says "Settings → Extras") are better fixed in their own PRs.
 - Not in it: registering `RELEASE_025`, `versionCode` 11, `versionName` and the release date. They belong to the release preparation.
 
 ## 2. Release notes (`RELEASE_NOTES.md`, GitHub release and Zapstore)
 
-> # CruxCoach 0.2.5 — 2026-11-2x
+> # CruxCoach 0.2.5 — Unreleased
 >
 > This release adds training and nutrition for climbers, statistics that compare your boards, a year in review, Shiny Wall, wall games and spray walls.
 >
