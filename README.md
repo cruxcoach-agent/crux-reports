@@ -11,6 +11,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [First test on a phone, test build 4](feat-spray-walls/2026-11-01-device-test-build-4.md) (2026-11-01): every step from adding a wall to deleting it, two bugs, rough edges, hold detection on a real photo, and the fixes for test build 5.
 - [A hold model on the phone](feat-spray-walls/2026-11-02-hold-model.md) (2026-11-02): the hold segmentation model in #49, measured on 28 labelled photos and a 2018 phone: precision, recall, gesture savings, time and memory, tuned settings.
 - [Review of the hold model PR, phone check](feat-spray-walls/2026-11-07-review-check.md) (2026-11-07): #49 after the review: no telemetry, model mirrors, leaving mid-run, withdraw and delete with Blossom cleanup, the shipped 2×2 setting measured on the phone, APK size.
+- [A reduced ONNX Runtime build](feat-spray-walls/2026-11-08-onnx-runtime-reduced-build.md) (2026-11-08): an ONNX Runtime with only the hold model's operators: 57 % smaller library (APK −8.4 MB, installed −19.7 MB) with identical results; the size-optimised build is slower; what it would cost to maintain.
 
 ### feat-0.2.5-analytics
 - [Stats across boards](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01, second version): the redesigned charts, how tries are counted, stills in dark and light.
