@@ -51,6 +51,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 ### release-0.2.5
 - [Phone test of spray walls and stats across boards](release-0.2.5/2026-11-01-phone-test-41-48.md) (2026-11-01): #48 checked against a made-up logbook with known results on three boards, plus the #41 phone test summary.
 - [What's New and release notes, first draft](release-0.2.5/2026-11-09-whats-new-and-release-notes.md) (2026-11-09): the combined What's New (EN, DE) and the release notes for 0.2.5, with the lines that depend on a PR or gate marked.
+- [What the release candidates are checked for](release-0.2.5/2026-11-09-rc-check-plan.md) (2026-11-09): the full check of RC1 and the last RC (update with data, every feature in EN and DE), and what comes before RC1.
 
 ### feat-0.2.5-done-led-effects
 - [LED effects, UI pass](feat-0.2.5-done-led-effects/2026-11-07-ui-pass.md) (2026-11-08): the LED effects card, the flashing-light notice, the info and the quick pick, rendered in English and German at 320 and 411 dp, with normal and largest font, in dark and light. Includes three design reviews, the findings and fixes in PR #81, before-and-after renders, and the phone check.
