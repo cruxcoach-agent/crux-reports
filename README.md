@@ -16,6 +16,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Stats across boards](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01, second version): the redesigned charts, how tries are counted, stills in dark and light.
 - [Ideas for the statistics](feat-0.2.5-analytics/2026-11-01-stats-ideas.md) (2026-11-01): five drawn ideas and more, with a suggested order.
 - [Logbook statistics, reorganised](feat-0.2.5-analytics/2026-11-01-statistics-highlights.md) (2026-11-01, third version): one overview on the logbook, every statistic once, with how your boards feel, tries until the send, milestones and the session recap; renders and phone screenshots.
+- [UI pass: logbook statistics](feat-0.2.5-analytics/2026-11-07-ui-pass.md) (2026-11-07): every statistics screen in 16 variants (dark/light, English/German, largest font, 320 dp), before and after.
 
 ### feat-0.2.5-training
 - [Clear weight and count fields, phone test](feat-0.2.5-training/2026-11-06-weight-fields.md) (2026-11-06): #58 / PR #60 on two test builds: labels, "2 × 16 kg", totals, text input, own exercises, lb, three fixes from the first build, screenshots.
