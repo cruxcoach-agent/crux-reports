@@ -34,6 +34,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 ### feat-0.2.5-year-in-review
 - [Climber types, a proposal](feat-0.2.5-year-in-review/2026-11-06-climber-types.md) (2026-11-06, third version): ten rule-based types for the year in review (#64), English and German names, how one is picked, the decision and the calibrated thresholds.
 - [Phone test](feat-0.2.5-year-in-review/2026-11-06-device-test.md) (2026-11-06): #64 / PR #67 on test builds 1–7: numbers against the raw logs, the card in December and January, every page in English and German, share images, the largest font size, little data, thirteen fixes, open questions.
+- [UI pass](feat-0.2.5-year-in-review/2026-11-07-ui-pass.md) (2026-11-08): every year-in-review screen rendered in English and German, 320 and 411 dp, normal and largest font, dark and light; four review rounds, before and after pictures, the decisions, and the phone check of test build 13 (#67).
 
 ### feat-community-client
 - [Community in the app, spike report](feat-community-client/2026-11-06-spike.md) (2026-11-07, with the decisions): #61 / PR #66: what the spike client does, phone checks against the real server, a review with nine fixes, time to the first room list, effort per phase, upkeep, risks, the recommendation and the decisions (phase 1 is #73).
