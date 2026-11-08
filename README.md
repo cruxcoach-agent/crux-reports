@@ -43,7 +43,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Account import: phone check and UI pass](feat-0.2.5-shiny-wall/2026-11-08-account-import-ui-pass.md) (2026-11-08): #56: a deleted entry stays deleted after a re-import and a new sign-in, the wrong "no entries" text that came up and its fix, and three render cycles of the card, sign-in sheet and import dialogs with before and after pictures.
 
 ### feat-0.2.5-community
-- [Community entry points, UI pass](feat-0.2.5-community/2026-11-08-ui-pass.md) (2026-11-08): Settings → Community, the hint after a report and the What's new line, rendered in 16 variants each over four cycles; the changes in #82 with before and after pictures.
+- [Community entry points, UI pass](feat-0.2.5-community/2026-11-08-ui-pass.md) (2026-11-08): Settings → Community, the hint after a report and the What's new line, rendered in 16 variants each over four cycles; the changes in #82 with before and after pictures, and the phone checks of #80 and #82 (with the scroll fix the phone found).
 
 ### feat-board-scan
 - [Scan the board, feasibility study](feat-board-scan/2026-11-07-feasibility.md) (2026-11-07, second version): #65: recognising the lit problem from the camera on Kilter 12×14 and 16×12 and MoonBoard 2016 and 2024: how it works, top-1/top-3/sure rates on 770 synthetic frames, LED detection and consistency checks on real photos, speed on a 2018 phone, failure cases, proposed targets and a go/no-go.
