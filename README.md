@@ -35,6 +35,9 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 ### feat-community-client
 - [Community in the app, spike report](feat-community-client/2026-11-06-spike.md) (2026-11-07, with the decisions): #61 / PR #66: what the spike client does, phone checks against the real server, a review with nine fixes, time to the first room list, effort per phase, upkeep, risks, the recommendation and the decisions (phase 1 is #73).
 
+### feat-0.2.5-shiny-wall
+- [Account import: phone check and UI pass](feat-0.2.5-shiny-wall/2026-11-08-account-import-ui-pass.md) (2026-11-08): #56: a deleted entry stays deleted after a re-import and a new sign-in, the wrong "no entries" text that came up and its fix, and three render cycles of the card, sign-in sheet and import dialogs with before and after pictures.
+
 ### feat-board-scan
 - [Scan the board, feasibility study](feat-board-scan/2026-11-07-feasibility.md) (2026-11-07, second version): #65: recognising the lit problem from the camera on Kilter 12×14 and 16×12 and MoonBoard 2016 and 2024: how it works, top-1/top-3/sure rates on 770 synthetic frames, LED detection and consistency checks on real photos, speed on a 2018 phone, failure cases, proposed targets and a go/no-go.
 
