@@ -78,4 +78,18 @@ The focused tests on `4247e3883` are all green:
 
 The 16 render configurations ran green too.
 
-The phone check of the new test build is next.
+## Phone check of `4247e3883`
+I installed the signed test build over the earlier one and signed in to the same Shiny Wall logbook, whose only entry had been deleted in CruxCoach:
+
+| Check | Result |
+|---|---|
+| Preview | "0 neue Begehungen, 0 neue Projekte, 0 schon in CruxCoach." and "1 Eintrag, den du in CruxCoach gelöscht hast, bleibt gelöscht." |
+| Import result | "Nichts Neues · 1 bleibt gelöscht"; the logbook stays empty |
+| Card | "Letzter Import: 8. Nov., 02:32"; the outlined import button shows its spinner while it checks; "Verbindung trennen" is centred |
+| Sign-in | The spinner shows on the disabled button |
+| Font scale 2.0 | The card title fits on one line on this 411 dp phone. In the preview, "Listen aktualisieren" wraps onto two lines and sits below "Abbrechen", with no overlap |
+| Disconnect | Works |
+| Rest of the app | Logbook, the climb list and a climb's page work |
+| Log | No email address, token or password; no crash |
+
+![Phone check: card after the import, and the preview at font scale 2.0](2026-11-08-phone-check.png)
