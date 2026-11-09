@@ -46,6 +46,14 @@ Seven short lines and an "Also" line. Order: what most people will use first. Pl
 - If the hold-type card (#95) passes its gate, it goes into the "Also" line: "hold types in the Kilter statistics" / "Grifftypen in den Kilter-Statistiken".
 - If the dialog reads too long on a small phone, the first candidates for the "Also" line are wall games and community.
 
+### Rendered
+
+The dialog with every line in (the app's own dialog, rendered on the computer in English and German, dark and light, 320 and 411 dp wide, font size 1.0 and 2.0). At 320 dp and font size 1.0 the German text just fits without scrolling; at font size 2.0 it scrolls and the OK button stays in view. The dialog's test passes with the new lines.
+
+| English, light, 411 dp | German, dark, 320 dp |
+|---|---|
+| ![What's New in English](2026-11-09-whatsnew-en-light-411dp.png) | ![What's New in German](2026-11-09-whatsnew-de-dark-320dp.png) |
+
 ### What the final pull request changes (from the freeze head)
 
 - `whatsnew_025_body` (EN, DE): the seven lines, with `&#160;` before each dash like the community line.
