@@ -158,6 +158,7 @@ The dialog with every line in (the app's own dialog, rendered on the computer in
 - Training, statistics, spray walls and the year in review are new for everyone coming from 0.2.4, so the fixes made to them during 0.2.5 (weight fields, the coach's weekly limits, pain scale 0–10, the UI passes) are part of the features, not listed as fixes.
 - Contributors are credited like in `CHANGELOG.md`: Dapeebb for the LED effects, Hugie for PaintBox. No PR numbers, like the 0.2.4 notes.
 - The backup sentence rests on the backup tests on the branch; the update check of RC1 checks it again.
+- Pain 10 and older builds (line proposed from the training room on 9 Nov): the stable 0.2.4 has no training part in its backups and skips fields it does not know, so it restores a 0.2.5 backup with a pain value of 10 like any other, without the training data. Only the test builds with training from before #94 (merged 9 Nov) check the training part with the 0–9 scale and refuse such a backup. That concerns testers, not users of 0.2.4, so the notes keep the sentence above and get no line for it.
 
 ## Changes in version 2
 
