@@ -4,7 +4,8 @@ Follow-up from [#59](https://github.com/CruxCoach/CruxCoach/issues/59): the full
 flags on the weekly volume of an area and on the app's value of an exercise. Each flag was traced against the
 app, decided as an app or a check problem, and fixed there. The same night added comeback athletes who don't
 follow the plan to the letter, the comeback plans of the other regions and findings, and an athlete who changes
-the card.
+the card. After the maintainer's review, the comeback plan's weekly look back follows the maintainer's three
+rules (see [the look back](#the-weekly-look-back-the-maintainers-three-rules)).
 
 Pull request: [#98](https://github.com/CruxCoach/CruxCoach/pull/98) · branch `fix/0.2.5-training-sim-flags` ·
 base `feat/0.2.5-release` @ 277534f3e.
@@ -12,26 +13,30 @@ base `feat/0.2.5-release` @ 277534f3e.
 ## Numbers
 
 Flags of the full run (29 personas). "Release" runs today's simulation, the new personas included, with the
-release branch's weekly plan; "Weekly-plan fix" adds the fixes below; "Final" adds the review points, the
-one-sided exercises and the refined checks.
+release branch's weekly plan; "Weekly-plan fix" adds the fixes below; "Night" adds the review points, the
+one-sided exercises and the refined checks (17af6d581); "Rules" adds the maintainer's review fixes and look-back
+rules (939c0ba56).
 
-| Group | Check | Release | Weekly-plan fix | Final |
-|---|---|---:|---:|---:|
-| Safety | Max finger work while a rule forbids it | 8 | 8 | 0 |
-| Safety | Exercise that loads an open injury | 187 | 198 | 0 |
-| Safety | Next comeback stage offered while it still hurt | 2 | 2 | 2 |
-| Safety | Painful comeback sessions without a step back, a repeat or a question | 1 | 1 | 0 |
-| Load | The app's value far from what the athlete can do | 12 | 11 | 11 |
-| Progress | An exercise stalled for weeks | 10 | 8 | 8 |
-| Progress | No lighter week in a block | 0 | 1 | 1 |
-| Progress | Comeback plan stuck on a stage although it stayed calm | 3 | 3 | 3 |
-| Progress | Next comeback stage after a week with few sessions | 4 | 4 | 2 |
-| Plan | Weekly volume of an area far from its target | 44 | 16 | 16 |
-| Choice | More new exercises in a training than allowed | 3 | 2 | 2 |
+| Group | Check | Release | Weekly-plan fix | Night | Rules |
+|---|---|---:|---:|---:|---:|
+| Safety | Max finger work while a rule forbids it | 8 | 8 | 0 | 0 |
+| Safety | Exercise that loads an open injury | 187 | 198 | 0 | 0 |
+| Safety | Next comeback stage offered while it still hurt | 2 | 2 | 2 | 0 |
+| Safety | Painful comeback sessions without a step back, a repeat or a question | 1 | 1 | 0 | 0 |
+| Load | The app's value far from what the athlete can do | 12 | 11 | 11 | 12 |
+| Progress | An exercise stalled for weeks | 10 | 8 | 8 | 6 |
+| Progress | No lighter week in a block | 0 | 1 | 1 | 1 |
+| Progress | Comeback plan stuck on a stage although it stayed calm | 3 | 3 | 3 | 0 |
+| Progress | Next comeback stage after a week with few sessions | 4 | 4 | 2 | 0 |
+| Plan | Weekly volume of an area far from its target | 44 | 16 | 16 | 15 |
+| Choice | More new exercises in a training than allowed | 3 | 2 | 2 | 5 |
 
 The safety flags "exercise that loads an open injury" and "max finger work" were almost all one-sided work with
 the healthy side, which the app plans on purpose; the check now tells it apart from work that loads the injured
-side (see below). Final run at 17af6d581.
+side (see below). The "Choice" flags in the last column are trainings with two new exercises where one is
+allowed, mostly on the day an injury frees an area again (shoulder, knee, back); they moved with the comeback
+plans' new timing and are the same kind as before. The sections below describe the night's run at 17af6d581;
+[the look back](#the-weekly-look-back-the-maintainers-three-rules) has the run with the rules.
 
 ## Weekly volume
 
@@ -116,6 +121,8 @@ the known cost of the careful start; the "5+" answer the maintainer mentioned fo
 
 ## Comeback athletes who don't follow the plan
 
+(Run at 17af6d581, before the look-back rules.)
+
 | Persona | What the athlete does | Stage reached | Plan ended in week | Step backs | Repeats | Highest session pain |
 |---|---|---|---|---:|---:|---:|
 | `pulley-comeback` | follows the plan | 5 | 8 | 0 | 0 | 3 |
@@ -129,6 +136,8 @@ only two days (open question 3). Before the plan starts, `comeback-late` gets on
 hand, which the app plans on purpose.
 
 ## Comeback plans of the other regions and findings
+
+(Run at 17af6d581, before the look-back rules.)
 
 Nine athletes from `pulley-comeback` with another injury, each checked by a doctor and following the app's plan
 for it: a pulley rupture and a tenosynovitis (findings with their own pain rule), and one injury each of the
@@ -184,6 +193,109 @@ exercise doesn't load the injured region on the other side as well. The same hol
 with the healthy hand during a finger injury of one hand, which the app plans on purpose (the comeback plan
 trains the healthy hand too).
 
+## The weekly look back: the maintainer's three rules
+
+The maintainer answered the three open questions of the night. Pull request
+[#98](https://github.com/CruxCoach/CruxCoach/pull/98) now has:
+
+1. **A rise of 1 in morning pain that stays within the stage's pain rule is no amber day.** A rise of 2, a rise
+   into the amber range, or a morning at 5 or more still is.
+2. **The stage holds while the week's middle morning pain is above the stage's rule.** With an even number of
+   logged mornings the higher of the two middle values counts, so the stage holds when at least half of the
+   mornings were above the rule. The card says why: "On at least half of the mornings you logged this week, the
+   pain was above your rule of 2. The usual approach is to stay at this stage until it is back at 2 or less in
+   the morning."
+3. **The next stage only after the stage's sessions on at least min(3, the stage's planned session days)
+   days.** A stage with two strength sessions a week moves on after two. This has its own text too: "The next
+   stage builds on this stage's sessions on at least 3 days a week; this week it was 2. The usual approach is to
+   stay at this stage for another week."
+
+The rule is the one the plan applies, so a finding that changes it counts (a tenosynovitis allows 3, a pulley
+rupture asks for 1 in its first two stages).
+
+### Found on the way: the look back's week (app)
+
+**Seen:** with the rules in place, `comeback-late` moved up to its next stage although the stage's first
+session had hurt at 5 (the stage's amber limit is 3). And 18 look backs that said "stay" had found the stage's
+sessions on two of the days they read, while the seven days before the look back had three.
+
+**Cause:** the look back read today and the six days before. It usually comes in the morning, before the
+day's sessions, so it never saw the stage's first day and saw only six days of sessions.
+
+**Fix:** the look back's week is the seven days before today, never before the stage began. Today counts where it
+warns (a morning at 5 or a jump of 2, an amber or red session) and with sessions already done, and the middle
+morning comes from the seven mornings after the week's days, today's included. A first version read the seven
+days and today as one window of eight days; on the phone the card then said "this week 8 of 8 logged days".
+Tests cover a painful first day of a stage, three sessions a week, a painful day before the stage, a bad
+morning today, and the card's "7 of 7".
+
+### How often the first stage repeats now
+
+Look-back proposals to repeat stage 0, per comeback athlete, before the rules (17af6d581) and now (939c0ba56):
+
+| Persona | Stage 0 repeated (before → now) | Highest stage | Plan ended in week |
+|---|---|---|---|
+| `comeback-ankle` | 2 → 1 | 5 → 5 | – → 11 |
+| `comeback-back` | 0 → 1 | 5 → 5 | 14 → 13 |
+| `comeback-eager` | 0 → 0 | 5 → 5 | 12 → 10 |
+| `comeback-elbow` | 2 → 2 | 3 → 3 | – → – |
+| `comeback-hamstring` | 2 → 1 | 5 → 5 | – → 11 |
+| `comeback-knee` | 4 → 1 | 3 → 5 | – → 14 |
+| `comeback-late` | 0 → 0 | 5 → 5 | 10 → 9 |
+| `comeback-rupture` | 4 → 4 | 3 → 5 | – → – |
+| `comeback-shoulder` | 2 → 1 | 5 → 5 | – → – |
+| `comeback-skipper` | 0 → 1 | 5 → 5 | 10 → 9 |
+| `comeback-tenosynovitis` | 0 → 0 | 5 → 5 | 11 → 8 |
+| `comeback-wrist` | 7 → 1 | 1 → 5 | – → 12 |
+| `pulley-comeback` | 0 → 0 | 5 → 5 | 8 → 9 |
+| **All** | 23 → 13 | | 6 → 10 plans ended |
+
+The healed wrist that repeated its first stage for five weeks now repeats it once (after a week in which one
+morning jumped from 0 to 2, which stays a warning) and finishes the plan in week 12. The pulley rupture still repeats stage 0 four times: its rule of 1 makes
+sessions at 2 amber days, so the plan stays stricter after a rupture. Ten of the thirteen comeback
+athletes now finish their plan within 14 weeks, against six before.
+
+Why the look back said "stay" (all comeback athletes, whole run): the last stage went well and the plan ends
+(10), the middle morning was above the rule (6), pressure pain was rising (2), too few session days (1). The
+simulation's day report now names the reason.
+
+### No move up with steady pain or too few session days
+
+Every proposal of the next stage was checked against the week behind it:
+
+- **Steady morning pain:** a move up after a week whose middle morning was above the stage's rule: **none**
+  (a new check). A move up after a week with a session above the amber limit or a morning at 5 or more:
+  **none** (was 2).
+- **Too few session days:** a move up after a week with the stage's sessions on fewer than min(3, planned) days:
+  **none** (was 2).
+- **Stuck although calm:** a stage held for three weeks or more while the last two stayed within its rule:
+  **none** (was 3).
+
+### On the phone
+
+Test build 7 (c4788cf37), with a backup of five comeback plans imported through Settings → Sichern & übertragen →
+Daten importieren: each stage began 8 days ago, with a diary for the week.
+
+| Plan | Diary | Look back |
+|---|---|---|
+| Wrist, stage 0 | mornings moving between 0 and 1, sessions daily | next stage offered (rule 1) |
+| Knee, stage 0 | mornings steady at 3 | stays: mornings above the rule of 2 (rule 2) |
+| Elbow, stage 0 | sessions on 2 days | stays: "at least 3 days a week; this week it was 2" (rule 3) |
+| Shoulder, stage 4 | sessions on 2 days, the stage plans 2 strength days | next stage offered (rule 3) |
+| Ankle, stage 0 | sessions 7, 5 and 3 days ago | next stage offered (the old window saw 2); "Steigern" moves it to stage 1 |
+
+<img src="2026-11-09-lookback/knee-mornings-above-rule.png" width="270" alt="Comeback plan, knee: stays because the mornings were above the rule"> <img src="2026-11-09-lookback/elbow-few-session-days.png" width="270" alt="Comeback plan, elbow: stays because of too few session days"> <img src="2026-11-09-lookback/shoulder-stage-4-two-days.png" width="270" alt="Comeback plan, shoulder at stage 4: next stage after two strength days">
+
+At font size 2.0 and 320 dp both new texts wrap cleanly, and "3 Tagen" and "von 2" stay together:
+
+<img src="2026-11-09-lookback/knee-font-2.0-320dp.png" width="270" alt="Knee text at font size 2.0 and 320 dp"> <img src="2026-11-09-lookback/elbow-font-2.0-320dp.png" width="270" alt="Elbow text at font size 2.0 and 320 dp">
+
+The phone also showed the eight-day window's "8 von 8 eingetragenen Tagen" on the card for the next stage (left).
+Test build 8 (939c0ba56) has the seven-day week and says "7 von 7" (right); the knee and the elbow still stay, for
+the same reasons.
+
+<img src="2026-11-09-lookback/ankle-next-stage-8-of-8-before.png" width="270" alt="Before: the card for the next stage says 8 of 8 days this week"> <img src="2026-11-09-lookback/wrist-next-stage-7-of-7-after.png" width="270" alt="After: the card for the next stage says 7 of 7 days this week">
+
 ## Independent review
 
 A fresh reviewer read the weekly-plan fix without the author's notes. Its findings and what happened:
@@ -201,14 +313,11 @@ A fresh reviewer read the weekly-plan fix without the author's notes. Its findin
    too. **Fixed**: the reason shows only when nothing was cut for a full week, and the text says "still plan
    this week".
 
-## Open questions
+## Questions of the night (answered)
 
-1. **Morning pain that moves between 0 and 1** keeps a plan repeating its stage (`comeback-wrist`). Recommendation:
-   a rise of 1 that stays within the stage's green range is not an amber day; a rise of 2, or into the amber
-   range, still is.
-2. **Steady morning pain of 3** does not hold a stage back: the look back moves up as long as the mornings don't
-   rise and stay below 5, while the stage's own criteria say "everyday use hurts at most 2" or "is pain-free".
-   Recommendation: hold the stage while the week's middle morning value is above the stage's green limit.
-3. **Moving up after a week with few sessions:** the look back counts diary days, not session days, so a week
-   with sessions on two days can move up. Recommendation: offer the next stage only after sessions on at least
-   three days, or on as many days as the stage plans when that is fewer.
+1. **Morning pain that moves between 0 and 1** kept a plan repeating its stage (`comeback-wrist`). Answer: a rise
+   of 1 within the stage's rule is not an amber day. Done, see [the look back](#the-weekly-look-back-the-maintainers-three-rules).
+2. **Steady morning pain of 3** did not hold a stage back. Answer: hold the stage while the week's middle morning
+   value is above the stage's rule, with its own reason. Done.
+3. **Moving up after a week with few sessions.** Answer: the next stage only after sessions on at least
+   min(3, the stage's planned sessions) days. Done.
