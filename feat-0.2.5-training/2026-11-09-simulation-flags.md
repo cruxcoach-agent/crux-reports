@@ -298,6 +298,29 @@ the same reasons.
 
 <img src="2026-11-09-lookback/ankle-next-stage-8-of-8-before.png" width="270" alt="Before: the card for the next stage says 8 of 8 days this week"> <img src="2026-11-09-lookback/wrist-next-stage-7-of-7-after.png" width="270" alt="After: the card for the next stage says 7 of 7 days this week">
 
+## Follow-up after the maintainer's review of #98 ([#114](https://github.com/CruxCoach/CruxCoach/pull/114))
+
+1. **Only the stage's planned sessions count towards the next stage.** At finger stage 4 the tendon session is an
+   optional warm-up; three days of only that warm-up met "three session days" and offered the next stage. Now only
+   days with a session of a planned kind count, over the week's seven days (today's sessions never help a move up).
+   Where the stage has optional sessions, the card says that they don't count.
+2. **No next stage without a morning value** (the maintainer's rule). A week without one that is otherwise ready
+   for the next stage asks for this morning's pain first; the answer becomes today's diary value and the look back
+   decides as usual. "Skip" keeps the stage with a short hint, and the skip is remembered for that look back.
+
+Simulation at 1aef00d4d: a new athlete `comeback-no-mornings` never logs the morning pain, skips the first question
+and answers the later ones; it finishes its plan in week 9. A new safety check (a next stage offered without a
+morning value in the week) finds nothing. All other flags and comeback numbers are as at #98's merge.
+
+Phone, test builds 1 and 2 of #114, with four imported plans: the question (left), answered with 1 it offers the
+next stage; skipped, the stage stays with the hint (middle); the warm-up-only week at finger stage 4 (right).
+
+<img src="2026-11-09-lookback/morning-question.png" width="270" alt="The look back asks how the injury feels this morning"> <img src="2026-11-09-lookback/morning-skipped.png" width="270" alt="After skipping, the stage stays with a hint to log the morning pain"> <img src="2026-11-09-lookback/optional-sessions-dont-count.png" width="270" alt="Optional sessions don't count towards the next stage">
+
+At font size 2.0 and 320 dp the question's chips wrap into rows and "Überspringen" fits:
+
+<img src="2026-11-09-lookback/morning-question-font-2.0-320dp.png" width="270" alt="The morning question at font size 2.0 and 320 dp">
+
 ## Independent review
 
 A fresh reviewer read the weekly-plan fix without the author's notes. Its findings and what happened:
