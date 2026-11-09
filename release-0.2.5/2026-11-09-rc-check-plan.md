@@ -31,13 +31,13 @@ Install the RC over an earlier build of the release track that has data in it, w
 | Training & nutrition | quick start; Today's suggestion with "Why?"; start a training, log sets, rest and hang timer, end page; swap an exercise; "It hurts" with the 0–10 pain sheet; injury mode; nutrition: find food, barcode scan, typed meal, water; the export contains training data |
 | Statistics | logbook overview card; period and board filters; tries until the send; boards compared (logbook with two boards); session recap shared as an image |
 | Year in review | open from the statistics with the year picker; tap through every page; share a page: no name, problem names or exact dates unless switched on |
-| Shiny Wall | choose a wall and its variant; browse with the filters and categories; light a problem; the map shows Shiny Wall gyms; the account import if #50 is in |
+| Shiny Wall | choose a wall and its variant; browse with the filters and categories; light a problem; the map shows Shiny Wall gyms; the account import (#50, with real history entries from #56) |
 | Wall games | each of the four games with a board, and on the screen without one |
 | Spray walls | new wall from a photo without people; holds suggested (with and without the hold model); set and log a problem; versions; publish, find it at its gym, withdraw; the switch that hides spray walls |
 | LED effects | pick an effect in Settings and from a climb's menu; "None" restores the normal colours |
 | Community | Settings → Community; "Join on Buzz" opens the browser; the hint after a bug report |
 | Bluetooth name | share a board, end sharing: the phone's own name is back |
-| If in 0.2.5 | PaintBox (#90), board size check (#53), hold types on Kilter (#95), contrast (#92) |
+| If in 0.2.5 | PaintBox (#90), board size check (#55, with #53), hold types on Kilter (#95), contrast (#92) |
 
 Checks with a board use the board simulator; a real board where the feature needs one (PaintBox's gate).
 
@@ -47,7 +47,16 @@ Checks with a board use the board simulator; a real board where the feature need
 - Dark and light theme, and the largest font size on the screens of the new features.
 - No crash during the whole check (the crash buffer is read at the end).
 
+## 4. Before the stable release is published
+
+The release candidates are their own app next to the stable one, so the update from the stable 0.2.4 app to the stable 0.2.5 app is checked with the stable build itself (added on 9 Nov at the maintainer's request):
+
+1. Install the signed stable 0.2.5 over the stable 0.2.4 app on the test phone, without uninstalling, before 0.2.5 is published. The maintainer gives the steps for the signed build.
+2. Android accepts it as an update, and the app opens on its own data: logbook, lists, settings and the account key are still there.
+3. The databases are updated on the first start (Secure 16 → 18, the new training database), without a crash.
+4. The What's New dialog appears once after the update, in the phone's language, and not again after a restart. This is the only build where it can appear after an update; on release-track builds only its render and unit test check it.
+5. A quick check of the main screens and the 0.2.5 entry points (training, statistics, Shiny Wall, spray walls).
+
 ## Not part of these checks
 
 - Signing and the release workflow: they follow separately.
-- The update path from the stable 0.2.4 app to the stable 0.2.5 app. The release candidates are their own app next to the stable one, so this path can only be checked with the stable build itself.
