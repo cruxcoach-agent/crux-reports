@@ -9,6 +9,8 @@ rules (see [the look back](#the-weekly-look-back-the-maintainers-three-rules)).
 
 Pull request: [#98](https://github.com/CruxCoach/CruxCoach/pull/98) · branch `fix/0.2.5-training-sim-flags` ·
 base `feat/0.2.5-release` @ 277534f3e.
+Rebased onto the release branch as fbf239b79 (9 November, afternoon); the commits named below are from before
+that rebase and carry the same changes.
 
 ## Numbers
 
