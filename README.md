@@ -42,6 +42,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 
 ### feat-0.2.5-shiny-wall
 - [Account import: phone check and UI pass](feat-0.2.5-shiny-wall/2026-11-08-account-import-ui-pass.md) (2026-11-08): #56: a deleted entry stays deleted after a re-import and a new sign-in, the wrong "no entries" text that came up and its fix, and three render cycles of the card, sign-in sheet and import dialogs with before and after pictures.
+- [Wall games: UI pass](feat-0.2.5-shiny-wall/2026-11-09-wall-games-ui-pass.md) (2026-11-09): #101: a running game shows only clock, progress and the whole wall; rules behind the ⓘ; the bottom bar says whether the wall follows; every state has its next step; four render cycles with before and after pictures.
 
 ### feat-0.2.5-community
 - [Community entry points, UI pass](feat-0.2.5-community/2026-11-08-ui-pass.md) (2026-11-08): Settings → Community, the hint after a report and the What's new line, rendered in 16 variants each over four cycles; the changes in #82 with before and after pictures, and the phone checks of #80 and #82 (with the scroll fix the phone found).
