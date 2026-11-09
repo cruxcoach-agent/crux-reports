@@ -1,0 +1,214 @@
+# Training simulation: tracing the open flags (#59)
+
+Follow-up from [#59](https://github.com/CruxCoach/CruxCoach/issues/59): the full simulation run of 6 November left
+flags on the weekly volume of an area and on the app's value of an exercise. Each flag was traced against the
+app, decided as an app or a check problem, and fixed there. The same night added comeback athletes who don't
+follow the plan to the letter, the comeback plans of the other regions and findings, and an athlete who changes
+the card.
+
+Pull request: [#98](https://github.com/CruxCoach/CruxCoach/pull/98) · branch `fix/0.2.5-training-sim-flags` ·
+base `feat/0.2.5-release` @ 277534f3e.
+
+## Numbers
+
+Flags of the full run (29 personas). "Release" runs today's simulation, the new personas included, with the
+release branch's weekly plan; "Weekly-plan fix" adds the fixes below; "Final" adds the review points, the
+one-sided exercises and the refined checks.
+
+| Group | Check | Release | Weekly-plan fix | Final |
+|---|---|---:|---:|---:|
+| Safety | Max finger work while a rule forbids it | 8 | 8 | 0 |
+| Safety | Exercise that loads an open injury | 187 | 198 | 0 |
+| Safety | Next comeback stage offered while it still hurt | 2 | 2 | 2 |
+| Safety | Painful comeback sessions without a step back, a repeat or a question | 1 | 1 | 0 |
+| Load | The app's value far from what the athlete can do | 12 | 11 | 11 |
+| Progress | An exercise stalled for weeks | 10 | 8 | 8 |
+| Progress | No lighter week in a block | 0 | 1 | 1 |
+| Progress | Comeback plan stuck on a stage although it stayed calm | 3 | 3 | 3 |
+| Progress | Next comeback stage after a week with few sessions | 4 | 4 | 2 |
+| Plan | Weekly volume of an area far from its target | 44 | 16 | 16 |
+| Choice | More new exercises in a training than allowed | 3 | 2 | 2 |
+
+The safety flags "exercise that loads an open injury" and "max finger work" were almost all one-sided work with
+the healthy side, which the app plans on purpose; the check now tells it apart from work that loads the injured
+side (see below). Final run at 17af6d581.
+
+## Weekly volume
+
+### A. Finger goal without finger equipment (app)
+
+**Seen:** `beginner-home-lb` and `new-no-setup` ended every week with finger 0.5 of 2 sessions. Neither has a
+hangboard, a pick-up block or a board. Their finger work is the one bouldering day a week, and a volume day
+counts half a session.
+
+**Cause:** the finger goal was a fixed two sessions a week. The coach never adds finger work to reach it (that
+stays with the recovery rules), so without equipment no training could ever reach the goal.
+
+**Fix:** without finger equipment at any of the athlete's places, the finger goal is at most the climbing days
+of the usual week (the standard week's climbing and board days, else the coach setup's), and at least one.
+
+**Left:** with only volume climbing the goal of one session can still stay at 0.5 (a volume day counts half).
+The card is not affected (the weekly plan never picks finger work for the week's goal); the progress view shows
+"0.5 of 1".
+
+### B. Pull over its maximum because of climbing later in the week (app)
+
+**Seen:** `youth-15`, `masters-55`, `beginner-home-lb` and `new-no-setup` went over 1.25 × the pull maximum.
+Example: `youth-15` boulders on Monday, Wednesday and Friday and trains on Tuesday. On Tuesday the week had room
+for 7 pull sets, and the training used 6 of them. Wednesday's and Friday's bouldering then added 2 set
+equivalents each: 12 against a maximum of 9.
+
+**Cause:** the weekly cap counted only the climbing already logged.
+
+**Fix:** the climbing still planned this week keeps its share of the room. The intensity comes from the day's
+plan, else from what the athlete logged on that weekday last time, else volume. Climbing that an injury pauses
+keeps no room, and a comeback stage holds it to its own level. When only that share cuts a training, the card
+says so: "The climbing you still plan this week adds pulling and core work, so today plans fewer of these
+sets." The first main exercise of a training still keeps two sets, but only while its area has room at all.
+
+### C. A block phase that changes mid-week (check)
+
+**Seen:** weeks in which a deload was brought forward or the taper began on a weekday were judged against
+Sunday's lower targets.
+
+**Fix (check):** such weeks have no single target, so the weekly-volume check skips them.
+
+### D. Legs at 0 while the day turned into mobility (app)
+
+**Seen:** `youth-15` and `masters-55` had legs at 0 in some weeks while Today suggested an easy mobility
+session on a training day.
+
+**Cause:** pull and core were full from climbing. The pull-and-push training lost most of its sets to the cap,
+and with fewer than 6 work sets left the day became mobility, although legs were still at 0.
+
+**Fix:** before the mobility session the coach tries the other kind of training (legs and core instead of pull
+and push, or the other way round) when an area of that kind is still below its goal and has room beyond what the
+planned climbing needs. That training may be shorter (4 work sets). Pull and push are never chosen the day
+before a limit day. When neither kind fits, mobility stays.
+
+### E. Push under half its goal (app)
+
+**Seen:** `always-easy` and `gym-no-board` ended many weeks with push under half its goal.
+
+**Cause:** the targets scale with the training days a week, climbing days included (five days: × 1.3). Push
+and legs are trained only off the wall, so five days with two of them climbing asked for five days of pressing.
+
+**Fix:** push and legs count the training days without climbing (at least one). Pull and core keep all days,
+because climbing counts for them.
+
+### Still flagged
+
+- Legs at 0 against a goal of 1–2 sets in some weeks (`youth-15`, `masters-55`, `gym-no-board`,
+  `advanced-taper`, 12 flags). The goal is so small that the weekly plan's most-needed area is always another
+  one; not traced further.
+- `new-no-setup` pull 9 against a maximum of 7 in week 5, and `picky` legs 9 against 6 in week 1 (the athlete's
+  own swaps).
+- `youth-15` week 10: the deload's trainings had 12.3 work sets on average against 13.9 in the build weeks; the
+  check asks for a clearer drop. Not traced.
+
+## Values far from the truth (convergence)
+
+The remaining flags are slow climbs from a careful start: the first plan of a new exercise starts low, and a
+session where every set was "3+" in reserve raises the load by two steps (one below 10 kg). Examples:
+`gym-no-board` goblet squat 51 kg against a true 69 kg after 6 sessions, `always-easy` overhead press 46 kg
+against 61 kg after 4 sessions. Light antagonist work (wrist curls) moves in 1 kg steps per dumbbell. This is
+the known cost of the careful start; the "5+" answer the maintainer mentioned for later would close it faster.
+
+## Comeback athletes who don't follow the plan
+
+| Persona | What the athlete does | Stage reached | Plan ended in week | Step backs | Repeats | Highest session pain |
+|---|---|---|---|---:|---:|---:|
+| `pulley-comeback` | follows the plan | 5 | 8 | 0 | 0 | 3 |
+| `comeback-skipper` | skips about half of the sessions, keeps the stage when asked to step back | 5 | 10 | 0 | 2 | 3 |
+| `comeback-eager` | climbs one level harder than the stage on half of the climbing days | 5 | 12 | 1 | 2 | 3 |
+| `comeback-late` | starts the plan two weeks late, at stage 2 | 5 | 10 | 0 | 2 | 5 |
+
+All four reach the last stage. The eager climber is stepped back once and takes four weeks longer. Two flags
+stay: `comeback-skipper` and `comeback-late` were offered the next stage after a week with comeback sessions on
+only two days (open question 3). Before the plan starts, `comeback-late` gets one-arm pick-ups for the healthy
+hand, which the app plans on purpose.
+
+## Comeback plans of the other regions and findings
+
+Nine athletes from `pulley-comeback` with another injury, each checked by a doctor and following the app's plan
+for it: a pulley rupture and a tenosynovitis (findings with their own pain rule), and one injury each of the
+shoulder, the inside of the elbow, the wrist, the knee, the ankle, the hamstring and the low back. The injured
+tissue heals over a time that fits the finding or region. Region plans have no reference values, so the athlete
+works at the effort each item asks for.
+
+| Persona | Stage reached in 14 weeks | Plan ended in week | Step backs | Repeats | Highest session pain |
+|---|---|---|---:|---:|---:|
+| `comeback-rupture` | 3 | – | 1 | 7 | 3 |
+| `comeback-tenosynovitis` | 5 | 11 | 0 | 3 | 2 |
+| `comeback-shoulder` | 5 | – | 3 | 2 | 10 |
+| `comeback-elbow` | 3 | – | 3 | 4 | 10 |
+| `comeback-wrist` | 0 | – | 3 | 7 | 9 |
+| `comeback-knee` | 3 | – | 3 | 4 | 8 |
+| `comeback-ankle` | 5 | – | 1 | 5 | 5 |
+| `comeback-hamstring` | 5 | – | 0 | 7 | 4 |
+| `comeback-back` | 5 | 14 | 3 | 2 | 8 |
+
+In the region plans the first strength stage often hurt in the simulation, and the plan stepped back each time,
+as it should. How hard the first holds feel this early depends on the simulation's rough model of the injured
+tissue, so the high pains say more about that model than about the plan.
+
+Two things the plans did that look wrong:
+
+- **Stuck on the first stage (`comeback-wrist`, weeks 10–14):** the tissue was healed in the simulation, the
+  sessions hurt 0–2, the mornings were 0 or 1. The weekly look back still proposed repeating the stage every
+  week: a morning that is 1 higher than the days before counts as an amber day, and two of them in a week mean
+  "repeat". At 0 and 1 that happens by chance (open question 1).
+- **A painful first week at stage 0 said "not enough entries"** (`comeback-rupture`, fixed): there is no stage
+  below the first, so the look back proposed "stay", and the card for "stay" said "Not enough entries this week
+  to say more" although every day was logged. It now proposes repeating the week, and the card names the painful
+  day as it does at the later stages.
+
+`comeback-knee` and `comeback-skipper` were offered stage 1 after a week whose mornings stayed at 3 for several
+days (5/3/3/3/2 and 5/3/3/3/3/1/2; the 5 was the day before the look back's week) (open question 2).
+
+### Found: one-sided exercises that load both sides (app)
+
+**Seen:** around an injury of one arm or leg, Today offered one-sided exercises "for the healthy side only".
+Most are right that way (a one-arm lat pulldown, a single-leg deadlift). Some still load the injured side: the
+straight arm of an archer push-up or pull-up, the assisting arm of an assisted one-arm pull-up or hang, both
+knees in a child's pose or a kneeling lunge stretch, both legs in a lunge or split squat.
+
+**Fix:** the exercise catalogue names the regions such an exercise loads on both sides (`bothSides`, 20
+exercises). Around an injury of one limb that rules the exercise out (pain 4 or more, or a comeback stage before
+its open stage) it is left out instead of planned for the healthy side. A mild injury keeps the healthy side
+doing the hard part, as before. Only the region that is loaded on both sides counts: the child's pose is left
+out for an injured knee, but stays for the healthy shoulder.
+
+**Check:** the safety check now accepts one-sided work the athlete did with the healthy side only, when the
+exercise doesn't load the injured region on the other side as well. The same holds for one-handed finger work
+with the healthy hand during a finger injury of one hand, which the app plans on purpose (the comeback plan
+trains the healthy hand too).
+
+## Independent review
+
+A fresh reviewer read the weekly-plan fix without the author's notes. Its findings and what happened:
+
+1. The climbing reserve counted climbing that an injury pauses or a comeback stage holds back. **Fixed**, with a
+   test for both.
+2. The check for painful comeback sessions without a step back counted a move up just before the pain as the
+   plan's answer. **Fixed**: only what came after the first painful session counts.
+3. The finger goal used the equipment of the place picked today, so it changed with the place. **Fixed**: any of
+   the athlete's places counts.
+4. With only volume climbing the capped finger goal can stay out of reach. **Left** (see A).
+5. The switch to the other kind ignored the climbing reserve, and a mobility session after a switch still named
+   the area that called for it. **Fixed**.
+6. The climbing reason won over "the week is full", and its text said "later" although today's climbing counts
+   too. **Fixed**: the reason shows only when nothing was cut for a full week, and the text says "still plan
+   this week".
+
+## Open questions
+
+1. **Morning pain that moves between 0 and 1** keeps a plan repeating its stage (`comeback-wrist`). Recommendation:
+   a rise of 1 that stays within the stage's green range is not an amber day; a rise of 2, or into the amber
+   range, still is.
+2. **Steady morning pain of 3** does not hold a stage back: the look back moves up as long as the mornings don't
+   rise and stay below 5, while the stage's own criteria say "everyday use hurts at most 2" or "is pain-free".
+   Recommendation: hold the stage while the week's middle morning value is above the stage's green limit.
+3. **Moving up after a week with few sessions:** the look back counts diary days, not session days, so a week
+   with sessions on two days can move up. Recommendation: offer the next stage only after sessions on at least
+   three days, or on as many days as the stage plans when that is fewer.
