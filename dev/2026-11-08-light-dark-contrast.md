@@ -4,6 +4,8 @@
 
 **State, 8 November:** the code is in draft PR [#92](https://github.com/CruxCoach/CruxCoach/pull/92). Its CI is green, and test build 1 (`6aba0609`) was checked on a phone in light and dark.
 
+**Night of 8–9 November:** rebased onto the release branch, then an audit of every call site and test build 2 (`453debc6`), checked on the phone in light and dark. See the last section.
+
 ## What was wrong
 - **Lilac surfaces.** The colour schemes set only a few Material roles, so Material filled the rest with its lilac defaults. In the light theme this showed on the drawer, cards, the day row, the setup card and the navigation bar. In the dark theme it showed on the top bar and the drawer.
 - **Orange text** `#FF6D00` on white: 2.8:1. White labels on the darker orange `#E65100`: 3.8:1.
@@ -66,5 +68,28 @@ The phone check also covered the following, in both themes, with no crash:
 - the climb page with the deep orange "Connect" button and white label
 - the logbook, the settings list, onboarding and the tour spotlight
 
+## Night of 8–9 November: an audit of every call site (test build 2)
+The first pass fixed the theme's tokens. A static audit of every screen then looked for labels that still miss the target because of how a screen uses the tokens. It found about 110, almost all in the light theme:
+- **Orange or status text on its own faint tint** (badges, chips, selected rows, banners, the climb dock): 3.3–4.5:1. These now use the container pairs: the quiet orange of the selected chips, and green, yellow and red containers with their labels. Banners with an icon keep the colour on the icon and use the normal text colour.
+- **Default button labels on container cards** (error, caution, positive and secondary cards): 3.2–4.4:1. They take the card's on-colour. The Today suggestion card keeps its orange links in a deeper orange in light and a lighter one in dark.
+- **Faded secondary text** (`onSurfaceVariant` at 60–80 %): 2.6–3.8:1. No longer faded.
+- **Fixed colours used as text** (phase, grade and session tags, the flash marker, the bar percentages, the unread badge): the text colour, or one that reads on their fill.
+- **Screens merged since the first pass:** the year in review pages are dark in both themes and keep the bright orange; the water, fat and energy rings get deeper tones in light.
+- **One more token:** the dark theme's error container is deeper (`#5E1410`), so the red attempt button no longer outweighs the green send button.
+
+Test build 2 on the phone, light left, dark right. The climb dock:
+
+![Climb dock, build 2](2026-11-08-light-dark-contrast/build2-dock.png)
+
+A selected logbook entry:
+
+![Selected logbook entry, build 2](2026-11-08-light-dark-contrast/build2-logbook-selected.png)
+
+The Today suggestion card with its links:
+
+![Today suggestion, build 2](2026-11-08-light-dark-contrast/build2-today-suggestion.png)
+
+The check also covered home, settings and appearance, the training week row and the setup card, with no crash.
+
 ## Next
-- A rebase onto the release branch once the open UI-pass PRs (#81–#84) are merged, then one more check of their screens.
+- A rebase onto the release branch once #81, #83 and #84 are merged, with the same fixes for the few spots #83 adds, then one more check of their screens.
