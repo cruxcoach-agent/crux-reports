@@ -91,5 +91,29 @@ The Today suggestion card with its links:
 
 The check also covered home, settings and appearance, the training week row and the setup card, with no crash.
 
+## 9 November: the maintainer's review, test builds 3 and 4
+Rebased onto the release branch with #55. The review asked for three things:
+- the bright orange for rings drawn on a board picture
+- a clearer selected default chip in light
+- the same fixes for the patterns #83 added
+
+**Selection in light.** The light `secondaryContainer` went from `#D5DEE3` to `#C8D3D9`. A selected chip or segment stands out at 1.40:1 against the page (was 1.25), and the bottom-bar pill at 1.36:1 against the bar (was 1.22). The text on it stays above 4.5:1. Test build 3, appearance settings and the training bottom bar:
+
+![Selected chips and the bottom bar in light, build 3](2026-11-08-light-dark-contrast/build3-selection-light.png)
+
+**The size check's rings** sit on the dark board picture in both themes and take the bright orange:
+
+![Size check in light, build 3](2026-11-08-light-dark-contrast/build3-size-check-light.png)
+
+**The hold search's rings.** Test build 3 gave them the bright orange too. But the Kilter Original pictures are holds without a backdrop, drawn on the light card (`#ECEFF1`), where the bright orange measured 2.4:1 in the screenshot (left). Since test build 4, the rings and the zone frame take the bright orange only on a board photo (a picture without transparency), and the theme's orange otherwise: 4.9:1 on the light card (right).
+
+![Hold search in light, build 3 left, build 4 right](2026-11-08-light-dark-contrast/build3-4-hold-search-light.png)
+
+Test build 4 with a zone, light left, dark right:
+
+![Hold search with a zone, build 4](2026-11-08-light-dark-contrast/build4-zone-light-dark.png)
+
+No crash in either build.
+
 ## Next
-- A rebase onto the release branch once #81, #83 and #84 are merged, with the same fixes for the few spots #83 adds, then one more check of their screens.
+- #101 and #95 are not merged yet. Their orange patterns get the same fix in whichever PR merges second.
