@@ -169,6 +169,9 @@ Two defects of the second commit, both reproduced on the Python reference first:
 - **Measured:** none of the 1180 drawn cases and none of the 235 test picture pairs change (also fitted and settled); of the tone, ink and noise probes only the two JPEG pictures change, back to the clean result.
 - **Kept on purpose:** a hold under a stroke lights and is never thinned, like the hold under a dot. Where a line runs along a sparse Kilter row, the holds under it light besides the denser row beside it, so the line can be two rows thick in places (logo G on Kilter 12 × 12: 207 → 215 holds).
 - **Tests:** two faint tones judged each on its own; shapes one spacing apart stay apart as a JPEG; the noisy blocks keep the same holds, not only as many; a light grey stays dark, and a grey right at the bar lights in full or not at all with noise. The two new tests fail on the second commit.
+- **Phone (test build 3, without a board, MoonBoard 2016):** the two-tone picture as a JPEG lights the white disc and the wine-red element, and the faint navy panel stays dark. The dot picture from the earlier check lights the same holds as with build 2.
+
+![two tones as JPEG, placed on holds](2026-11-15-photo-mapping/phone-two-tones-jpeg.png)
 
 ## Open
 - Ring markers on the staggered Kilter rows are unchanged (already as in #125). Thin rings of some sizes (for example 0.7 hold spacings across and a tenth of a spacing thick) still light nothing on both layouts: the ring falls between the samples of the hold's disc.
