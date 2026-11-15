@@ -47,7 +47,7 @@ A single dot at 40 random places (MoonBoard grid): how often exactly the nearest
 | 0.85 | 0 | 26 | 37 |
 | 1.0 | 5 | 16 | 34 |
 
-Where the lit hold is not the nearest, it lies at most 0.14 hold spacings farther from the dot than the nearest one (today up to 0.66).
+Where the lit hold is not the nearest, it lies at most 0.14 hold spacings farther from the dot than the nearest one (today up to 0.8).
 
 Tones (holds in the part in question, Kilter rows / MoonBoard grid):
 
