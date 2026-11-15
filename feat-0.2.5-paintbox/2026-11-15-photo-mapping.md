@@ -126,6 +126,21 @@ Seen side by side, picture by picture:
 - **Neutral:** small shifts of one or two holds along outlines; a new placement a few percent larger or moved by part of a hold spacing.
 - **To judge:** a glowing ring on the MoonBoard 2016 gets two holds one row further out at top and bottom: closer to the ring band, but the octagon is less even. A logo with a thin oval outline on the smaller Kilter is placed 4 % larger, and the bottom of the outline shows as 5 single holds instead of 1.
 
+## Second commit: review follow-up (`c50b1e45`)
+An independent review of the first commit found no crash bugs, but one real gap: a faint flat tone close to the bar between counting and not lit part of its holds once the photo had noise. Its pixels were judged one by one, so noise put some on each side of the bar.
+
+| Case (holds in the panel, MoonBoard grid / Kilter rows) | #125 | first commit | now |
+|---|---|---|---|
+| Light grey `#d0d0d0` beside a black picture, noise ±4 | 0 / 0 | 4 / 21 | 0 / 0 |
+| The same, noise ±8 | 0 / 0 | 4 / 24 | 0 / 0 |
+| Faint navy panel beside a white logo, noise ±4 | 0 / 0 | 10 / 56 | 0 / 0 |
+| The same, noise ±8 | 0 / 0 | 11 / 41 | 0 / 0 |
+| Grey `#cccccc` beside a black picture, noise ±12 (should light, 12 / 48) | 7 / 32 | 12 / 46 | 12 / 48 |
+
+- **Rule now:** a flat tone counts or not as a whole, judged at the mean distance of its band of levels.
+- **Measured:** none of the 1180 drawn cases and none of the 235 test picture pairs change (also fitted and settled). The Kotlin still matches the Python reference in 1173 of 1180 drawn cases (the same 7 near-ties).
+- **Also:** the dot step compares squared distances and stops early; new tests for a speck, a ring around a hold, the noisy grey and navy panels, and a stroke that lights only the row nearest to it.
+
 ## Open
-- Ring markers on the staggered Kilter rows are unchanged (already as in #125).
+- Ring markers on the staggered Kilter rows are unchanged (already as in #125). Thin rings of some sizes (for example 0.7 hold spacings across and a tenth of a spacing thick) still light nothing on both layouts: the ring falls between the samples of the hold's disc.
 - Moving a photo by a quarter hold spacing changes about as many holds as today.
