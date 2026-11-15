@@ -13,6 +13,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Review of the hold model PR, phone check](feat-spray-walls/2026-11-07-review-check.md) (2026-11-07): #49 after the review: no telemetry, model mirrors, leaving mid-run, withdraw and delete with Blossom cleanup, the shipped 2×2 setting measured on the phone, APK size.
 - [A reduced ONNX Runtime build](feat-spray-walls/2026-11-08-onnx-runtime-reduced-build.md) (2026-11-08): an ONNX Runtime with only the hold model's operators: 57 % smaller library (APK −8.4 MB, installed −19.7 MB) with identical results; the size-optimised build is slower; what it would cost to maintain.
 - [UI pass](feat-spray-walls/2026-11-08-ui-pass.md) (2026-11-08): every spray-wall screen rendered in English and German, dark and light, normal and largest font, 411 and 320 dp, six review cycles, before and after pictures (#84).
+- [Deleting a public wall: the progress text](feat-spray-walls/2026-11-15-wall-delete-text.md) (2026-11-15): #131 on the phone: deleting names both steps on Save and on the wall page, a failed delete keeps the wall, going private keeps its text.
 
 ### feat-0.2.5-analytics
 - [Stats across boards](feat-0.2.5-analytics/2026-11-01-stats-across-boards.md) (2026-11-01, second version): the redesigned charts, how tries are counted, stills in dark and light.
