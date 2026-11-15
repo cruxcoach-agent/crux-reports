@@ -49,3 +49,27 @@ What this shows:
 Keep 0.2.5 as it is: the budget stays the same, and the new line says when a picture is dimmed. After 0.2.5, try "dim the brightest first" as a switch in a wall-test build, side by side with today's dimmer on two or three typical pictures (a logo, a smiley, a photo), and decide from what the wall looks like. The outline option for photo import is the bigger win for bright photos and is worth its own small feature.
 
 What is not known and only a measurement can show: how the LED box turns a colour level into brightness (if it applies its own curve, the levels could be chosen better), and whether the box limits its own power. Both belong to the limit test build planned after 0.2.5.
+
+## UI pass of the dimmed line (#130)
+
+Renders of every variant (dark and light, English and German, font scale 1.0 and 2.0, 320 and 411 dp), three cycles with a design critic and an independent code review. The pictures show a synthetic picture, no wall photo.
+
+- **The line** sits under Live and Send and keeps its place while a board is connected, so the board never moves under a stroke when it comes and goes. With Live on:
+
+  ![Dimmed line with Live on](2026-11-15-dimming/line-live-fs1-w411.png)
+
+- **Largest font on a 320 dp screen:** the line takes two lines at most.
+
+  ![Dimmed line at font scale 2.0, 320 dp](2026-11-15-dimming/line-fs2-w320.png)
+
+- **The one-time card**, over the lower part of the board:
+
+  ![Why dimmed? card](2026-11-15-dimming/card-fs1-w411.png)
+
+- **Before and after at the largest font, 320 dp:** in the first cycle the card sat in the bottom bar and pushed Live and Send off the screen. Now it lies over the board, takes at most 40 % of the screen and its text scrolls.
+
+  | Before | After |
+  | --- | --- |
+  | ![Before](2026-11-15-dimming/before-card-fs2-w320.png) | ![After](2026-11-15-dimming/after-card-fs2-w320.png) |
+
+Not taken from the critique: an icon that grows with the font (the "On the board" status uses the same 18 dp icon), and a different card colour (the same card as the other one-time introductions in the app).
