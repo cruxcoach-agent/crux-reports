@@ -173,6 +173,18 @@ Two defects of the second commit, both reproduced on the Python reference first:
 
 ![two tones as JPEG, placed on holds](2026-11-15-photo-mapping/phone-two-tones-jpeg.png)
 
+## Fourth commit: a small faint element (`481010c8`)
+From the owner's review of the third commit: within a band of flat levels a colour was a tone's core only with at least 5 % of the band's most common colour, and a rarer colour without a core beside it belonged to no tone. Now rare colours beside each other form a tone of their own, judged at their own mean distance.
+
+| Navy ground, white disc, faint navy panel 0.8 × 0.4, wine-red element 0.12 × 0.12 | #126 | third commit | now |
+|---|---|---|---|
+| Holds in the element, Kilter rows / grid | 6 / 4 | 0 / 0 | 6 / 4 |
+| Holds in the panel (must stay dark) | 0 / 0 | 0 / 0 | 0 / 0 |
+
+- **Measured:** none of the 1180 drawn cases, none of the 235 test picture pairs (also fitted and settled) and none of the tone, ink, noise and JPEG probes change.
+- **Test:** the small element beside the large panel on both layouts; it fails on the third commit.
+- The branch is rebased onto the release branch, so the commits have new hashes: the third commit is now `476f37a9`.
+
 ## Open
 - Ring markers on the staggered Kilter rows are unchanged (already as in #125). Thin rings of some sizes (for example 0.7 hold spacings across and a tenth of a spacing thick) still light nothing on both layouts: the ring falls between the samples of the hold's disc.
 - Moving a photo by a quarter hold spacing changes about as many holds as today.
