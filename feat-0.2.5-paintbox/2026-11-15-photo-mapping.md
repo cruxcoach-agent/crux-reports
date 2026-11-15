@@ -141,6 +141,19 @@ An independent review of the first commit found no crash bugs, but one real gap:
 - **Measured:** none of the 1180 drawn cases and none of the 235 test picture pairs change (also fitted and settled). The Kotlin still matches the Python reference in 1173 of 1180 drawn cases (the same 7 near-ties).
 - **Also:** the dot step compares squared distances and stops early; new tests for a speck, a ring around a hold, the noisy grey and navy panels, and a stroke that lights only the row nearest to it.
 
+## Phone check (test build 2, `c50b1e45`)
+On the test phone, without a board: a fresh install, MoonBoard 2016, PaintBox → ⋮ → "Use a photo" with a drawn test picture (a 3×3 block of red dots, a diagonal of five blue dots, a green ring and a blue line), "Place on holds", then "Apply".
+
+| Test picture | Placed on holds | In the editor |
+|---|---|---|
+| ![test picture](2026-11-15-photo-mapping/phone-test-picture.png) | ![placed](2026-11-15-photo-mapping/phone-placed.png) | ![editor](2026-11-15-photo-mapping/phone-editor.png) |
+
+- **Diagonal:** five dots, five holds in a diagonal (G18, G17, H16, I15, J14). H17 has no hold mounted, so the dot there takes G17, the nearest mounted hold.
+- **Ring:** the mounted holds under the ring band light, none inside it.
+- **Block:** the placement put most of the block above row 18 or on empty positions; the two mounted holds under its dots light (A18, B18), nothing beside it.
+- **Line:** the three holds next to the line light, at both of its ends.
+- The board browser and settings open as before.
+
 ## Open
 - Ring markers on the staggered Kilter rows are unchanged (already as in #125). Thin rings of some sizes (for example 0.7 hold spacings across and a tenth of a spacing thick) still light nothing on both layouts: the ring falls between the samples of the hold's disc.
 - Moving a photo by a quarter hold spacing changes about as many holds as today.
