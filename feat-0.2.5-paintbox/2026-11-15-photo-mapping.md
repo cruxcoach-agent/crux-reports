@@ -154,6 +154,22 @@ On the test phone, without a board: a fresh install, MoonBoard 2016, PaintBox �
 - **Line:** the three holds next to the line light, at both of its ends.
 - The board browser and settings open as before.
 
+## Third commit: owner review (`e2acb512`)
+Two defects of the second commit, both reproduced on the Python reference first:
+
+| Case | #125 | second commit | now |
+|---|---|---|---|
+| Navy ground, white disc, faint navy panel (must stay dark) + small wine-red element: holds in the element, Kilter rows | 15 | 0 | 19 |
+| The same with a larger element: holds in the panel, Kilter rows / grid | 0 / 0 | 53 / 14 | 0 / 0 |
+| Four logo blocks as JPEG 90 %, Kilter rows (clean: 188) | – | 204 | 188 |
+| Red and white bars one hold spacing apart on anthracite, JPEG 95–70 %, Kilter rows (clean: 138) | – | 153 | 138 |
+
+- **Two faint tones:** the second commit judged a band of flat levels as a whole. Two tones at about the same distance from the ground fell into one band, so the panel and the element went together. Now the pixels of a band are grouped by colour (4 bits per channel; neighbouring common colours form one tone, so noise still keeps a tone together), and each tone counts or not at its own mean distance.
+- **JPEG fringe:** the 3 × 3 smoothing that keeps a noisy tone together also made bands out of long straight edges, and a JPEG's ringing beside them got full weight. Smoothed distances now count only where the distances around a pixel lie within 0.2 of each other: noise stays below that (up to 0.15 at ±12 levels), an edge lies far above it (0.3 to 1).
+- **Measured:** none of the 1180 drawn cases and none of the 235 test picture pairs change (also fitted and settled); of the tone, ink and noise probes only the two JPEG pictures change, back to the clean result.
+- **Kept on purpose:** a hold under a stroke lights and is never thinned, like the hold under a dot. Where a line runs along a sparse Kilter row, the holds under it light besides the denser row beside it, so the line can be two rows thick in places (logo G on Kilter 12 × 12: 207 → 215 holds).
+- **Tests:** two faint tones judged each on its own; shapes one spacing apart stay apart as a JPEG; the noisy blocks keep the same holds, not only as many; a light grey stays dark, and a grey right at the bar lights in full or not at all with noise. The two new tests fail on the second commit.
+
 ## Open
 - Ring markers on the staggered Kilter rows are unchanged (already as in #125). Thin rings of some sizes (for example 0.7 hold spacings across and a tenth of a spacing thick) still light nothing on both layouts: the ring falls between the samples of the hold's disc.
 - Moving a photo by a quarter hold spacing changes about as many holds as today.
