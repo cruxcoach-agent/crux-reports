@@ -1,6 +1,6 @@
 # Knot: spacing sets the reach, and a fresh field every game
 
-Knot ([#154](https://github.com/CruxCoach/CruxCoach/issues/154), [PR #155](https://github.com/CruxCoach/CruxCoach/pull/155)), commit `b22a34be5`, 2026-11-17.
+Knot ([#154](https://github.com/CruxCoach/CruxCoach/issues/154), [PR #155](https://github.com/CruxCoach/CruxCoach/pull/155)), commit `b22a34be5`, 2026-11-17; renders updated for commit `91d93d56b` (spacing first, see the end).
 
 ## Spacing sets the reach
 
@@ -51,7 +51,17 @@ The board preview as the app draws it, dark theme. Each pair is two games in a r
 ### Wide, 4 climbers (9 stripes)
 ![Wide, 4 climbers, game 1](2026-11-17-field-draws/wide-4-game1.png) ![Wide, 4 climbers, game 2](2026-11-17-field-draws/wide-4-game2.png)
 
+## Update: the spacing comes first (commit `91d93d56b`)
+
+The first renders had spots of one colour on neighbouring holds: two magenta hand spots about 14 cm apart (wide, 2 climbers, game 2) and two magenta foot spots about 20 cm apart (close, 4 climbers, game 1). The cause was the fallback: when no free hold kept the 30 cm, the draw took any free hold, and only fairness ranked the 24 draws.
+
+- The spacing now gives way last. A drawn spot would rather take one of the hardest holds than a hold next to another spot. Where no free hold keeps the spacing, it takes the one farthest from the spots so far.
+- No draw may put two spots closer together than the nearest-hold field does. Of the rest, the draw with the fewest spots too close to another wins, then the fairest one. Should no draw manage that, the nearest holds light.
+- A test checks a first game and the following one for the 7x10, 12x12, 16x12 and both MoonBoards, in every spacing and number of climbers, over four seeds.
+
+In the renders above, now drawn this way, the closest two spots are 28 cm apart (one 8-inch grid step and a half). The exception is close with 4 climbers, game 2, at 20 cm. There the nearest-hold field has a 20 cm pair too: 16 foot spots in narrow stripes don't fit 30 cm apart on the kickboard.
+
 ## Still open
 
-- The phone and simulator check of this build.
-- One round on a real Kilter board.
+- A game on the phone with the Kilter catalogue loaded (time to build the field, two games in a row).
+- One round on a real Kilter board, on the release build after the merge.
