@@ -67,4 +67,5 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [Board size check, UI pass](dev/2026-11-08-board-size-check-ui-pass.md) (2026-11-08): the size check sheet and the board picker link (#55 into #53) in every state, EN/DE, 320/411 dp, largest font, dark and light; before and after, a phone check without a board, the decisions.
 
 ### feat-0.2.5-knot
+- [Knot, spacing and fresh fields](feat-0.2.5-knot/2026-11-17-field-draws.md) (2026-11-17): spacing as the reach per player count, a fresh fair field every game from the catalogue's hold ratings, renders on the 12x12.
 - [Knot, UI pass](feat-0.2.5-knot/2026-11-17-ui-pass.md) (2026-11-17): the wall game Knot (#154, PR #155) in 14 screens and 16 variants each, three review rounds, the changes with before-and-after renders, and what was kept on purpose.
