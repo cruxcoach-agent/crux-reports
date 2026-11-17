@@ -59,7 +59,7 @@ The first renders had spots of one colour on neighbouring holds: two magenta han
 - No draw may put two spots closer together than the nearest-hold field does. Of the rest, the draw with the fewest spots too close to another wins, then the fairest one. Should no draw manage that, the nearest holds light.
 - A test checks a first game and the following one for the 7x10, 12x12, 16x12 and both MoonBoards, in every spacing and number of climbers, over four seeds.
 
-In the renders above, now drawn this way, the closest two spots are 28 cm apart (one 8-inch grid step and a half). The exception is close with 4 climbers, game 2, at 20 cm. There the nearest-hold field has a 20 cm pair too: 16 foot spots in narrow stripes don't fit 30 cm apart on the kickboard.
+In the renders above, now drawn this way, the closest two spots are 28 cm apart (one diagonal step on the 8-inch grid). The exception is close with 4 climbers, game 2, at 20 cm. There the nearest-hold field has a 20 cm pair too: 16 foot spots in narrow stripes don't fit 30 cm apart on the kickboard.
 
 ## Still open
 
