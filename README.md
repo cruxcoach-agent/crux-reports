@@ -58,6 +58,7 @@ Reports are grouped by the Buzz room they belong to: `<room>/<date>-<topic>.md`.
 - [What's New and release notes, first draft](release-0.2.5/2026-11-09-whats-new-and-release-notes.md) (2026-11-09): the combined What's New (EN, DE) and the release notes for 0.2.5, with the lines that depend on a PR or gate marked.
 - [Test plan for the release app](release-0.2.5/2026-11-09-rc-check-plan.md) (2026-11-09, second version): from the last merges to the stable release, build by build, with an owner for every line (update with data, every feature in EN and DE, the checks at a real board, RC1 and the stable build).
 - [Quantum for 0.2.5: player routes, experimental marks](release-0.2.5/2026-11-15-quantum.md) (2026-11-15): what #134 changes for a climber, the layer strip and board picker renders before and after, and what only a real board can answer.
+- [RC1 walk: results by area, bugs and cosmetic findings](release-0.2.5/2026-11-17-rc1-walk.md) (2026-11-17): build 1000052 on the test phone, every area in DE, EN, dark, light, the largest font, the fresh install and on the Kilter board simulator; the fifteen bugs with their fixes and the cosmetic list.
 
 ### feat-0.2.5-done-led-effects
 - [LED effects, UI pass](feat-0.2.5-done-led-effects/2026-11-07-ui-pass.md) (2026-11-08): the LED effects card, the flashing-light notice, the info and the quick pick, rendered in English and German at 320 and 411 dp, with normal and largest font, in dark and light. Includes three design reviews, the findings and fixes in PR #81, before-and-after renders, and the phone check.
