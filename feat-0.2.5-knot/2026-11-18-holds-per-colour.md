@@ -31,10 +31,10 @@ Many doesn't fit the 7x10 solo, so it's greyed there. On the MoonBoard, 2 climbe
 
 The catalogue was copied into the app's schema: 224,398 climbs and 345,610 rows of statistics.
 
-- **Grade query plus ratings** at 40°: 0.82 to 0.93 s, giving 550 rated hand holds.
-- **The field:** everything the app works out per settings change, off the main thread (nine plain fields and a drawn one), takes 7 to 66 ms.
-- **Two games in a row** with Normal or Few share 0 to 4 holds.
-- **Many at close** packs the field nearly full, about 24 lit holds per metre, so the next game may share most holds, or all of them.
+- **Grade query plus ratings** at 40°: 0.80 to 0.93 s, giving 550 rated hand holds.
+- **The field:** everything the app works out per settings change, off the main thread (nine plain fields and a drawn one), takes 8 to 66 ms.
+- **Two games in a row** with Normal or Few share 0 to 2 holds.
+- **Many** lights so many holds that the wall leaves little choice: the next game shares 2 to 79 of them. The most is with 4 climbers at close spacing, where 79 of 98 holds come back.
 
 These are server times; a phone takes longer. The app logs both times ("Knot grades", "Knot field") for the check on the release build.
 
